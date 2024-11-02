@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Backup\\Faculdade\\Computa\u00E7\u00E3o Gr\u00E1fica\\ProjetoJanela\\Sistema-grafico\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{792DEC75-0284-4E57-B6BB-15DD429B6DBF}|Sistema gr\u00E1fico.csproj|c:\\backup\\faculdade\\computa\u00E7\u00E3o gr\u00E1fica\\projetojanela\\sistema-grafico\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{792DEC75-0284-4E57-B6BB-15DD429B6DBF}|Sistema gr\u00E1fico.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Backup\\Faculdade\\Computa\u00E7\u00E3o Gr\u00E1fica\\ProjetoJanela\\Sistema-grafico\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{792DEC75-0284-4E57-B6BB-15DD429B6DBF}|Sistema gr\u00E1fico.csproj|C:\\Backup\\Faculdade\\Computa\u00E7\u00E3o Gr\u00E1fica\\ProjetoJanela\\Sistema-grafico\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{792DEC75-0284-4E57-B6BB-15DD429B6DBF}|Sistema gr\u00E1fico.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Backup\\Faculdade\\Computa\u00E7\u00E3o Gr\u00E1fica\\ProjetoJanela\\Sistema-grafico\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,7 +28,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Backup\\Faculdade\\Computa\u00E7\u00E3o Gr\u00E1fica\\ProjetoJanela\\Sistema-grafico\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAL0BAAAAAAAAAAAkwOIAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-19T21:53:53.125Z",
               "EditorCaption": ""
