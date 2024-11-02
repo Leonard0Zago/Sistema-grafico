@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\bin\Debug\ProjetoJanela.exe.config
 C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\bin\Debug\ProjetoJanela.exe
 C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\bin\Debug\ProjetoJanela.pdb
@@ -8,3 +9,15 @@ C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\
 C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.csproj.CoreCompileInputs.cache
 C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.exe
 C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.pdb
+=======
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\bin\Debug\ProjetoJanela.exe.config
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\bin\Debug\ProjetoJanela.exe
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\bin\Debug\ProjetoJanela.pdb
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.csproj.AssemblyReference.cache
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.CompGrafica.resources
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.Properties.Resources.resources
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.csproj.GenerateResource.cache
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.csproj.CoreCompileInputs.cache
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.exe
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.pdb
+>>>>>>> fc64f2d7e1cf1446ca006ae8d37152a3df4b6098
