@@ -8,3 +8,13 @@ C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\
 C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\Sistema gráfico.csproj.CoreCompileInputs.cache
 C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.exe
 C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\ProjetoJanela\obj\Debug\ProjetoJanela.pdb
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\bin\Debug\ProjetoJanela.exe.config
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\bin\Debug\ProjetoJanela.exe
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\bin\Debug\ProjetoJanela.pdb
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\obj\Debug\Sistema gráfico.csproj.AssemblyReference.cache
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\obj\Debug\ProjetoJanela.CompGrafica.resources
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\obj\Debug\ProjetoJanela.Properties.Resources.resources
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\obj\Debug\Sistema gráfico.csproj.GenerateResource.cache
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\obj\Debug\Sistema gráfico.csproj.CoreCompileInputs.cache
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\obj\Debug\ProjetoJanela.exe
+C:\Backup\Faculdade\Computação Gráfica\ProjetoJanela\Sistema-grafico\obj\Debug\ProjetoJanela.pdb

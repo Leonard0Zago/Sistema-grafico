@@ -82,6 +82,12 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabRotacao = new System.Windows.Forms.TabPage();
+            this.txtY = new System.Windows.Forms.TextBox();
+            this.txtX = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.rdPonto = new System.Windows.Forms.RadioButton();
+            this.rdOrigem = new System.Windows.Forms.RadioButton();
             this.btnRCancela = new System.Windows.Forms.Button();
             this.btnRConfirma = new System.Windows.Forms.Button();
             this.txtRota = new System.Windows.Forms.TextBox();
@@ -97,6 +103,9 @@
             this.btnECancela = new System.Windows.Forms.Button();
             this.btnEConfirma = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.ckOrigem = new System.Windows.Forms.CheckBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPonto.SuspendLayout();
@@ -114,7 +123,8 @@
             // picBox
             // 
             this.picBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picBox.Location = new System.Drawing.Point(326, 12);
+            this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBox.Location = new System.Drawing.Point(327, 12);
             this.picBox.Name = "picBox";
             this.picBox.Size = new System.Drawing.Size(600, 600);
             this.picBox.TabIndex = 0;
@@ -154,6 +164,7 @@
             // 
             // tabPonto
             // 
+            this.tabPonto.BackColor = System.Drawing.Color.Transparent;
             this.tabPonto.Controls.Add(this.label6);
             this.tabPonto.Controls.Add(this.cordYPonto);
             this.tabPonto.Controls.Add(this.label2);
@@ -167,7 +178,6 @@
             this.tabPonto.Size = new System.Drawing.Size(300, 248);
             this.tabPonto.TabIndex = 0;
             this.tabPonto.Text = "Ponto";
-            this.tabPonto.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -526,7 +536,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(219, 180);
+            this.tabControl1.Size = new System.Drawing.Size(219, 248);
             this.tabControl1.TabIndex = 11;
             // 
             // tabTranslacao
@@ -542,14 +552,14 @@
             this.tabTranslacao.Margin = new System.Windows.Forms.Padding(2);
             this.tabTranslacao.Name = "tabTranslacao";
             this.tabTranslacao.Padding = new System.Windows.Forms.Padding(2);
-            this.tabTranslacao.Size = new System.Drawing.Size(211, 154);
+            this.tabTranslacao.Size = new System.Drawing.Size(211, 222);
             this.tabTranslacao.TabIndex = 0;
             this.tabTranslacao.Text = "Translação";
             this.tabTranslacao.UseVisualStyleBackColor = true;
             // 
             // btnTCancela
             // 
-            this.btnTCancela.Location = new System.Drawing.Point(66, 133);
+            this.btnTCancela.Location = new System.Drawing.Point(70, 199);
             this.btnTCancela.Margin = new System.Windows.Forms.Padding(2);
             this.btnTCancela.Name = "btnTCancela";
             this.btnTCancela.Size = new System.Drawing.Size(56, 19);
@@ -560,7 +570,7 @@
             // 
             // btnTConfirma
             // 
-            this.btnTConfirma.Location = new System.Drawing.Point(4, 133);
+            this.btnTConfirma.Location = new System.Drawing.Point(8, 199);
             this.btnTConfirma.Margin = new System.Windows.Forms.Padding(2);
             this.btnTConfirma.Name = "btnTConfirma";
             this.btnTConfirma.Size = new System.Drawing.Size(56, 19);
@@ -617,6 +627,12 @@
             // 
             // tabRotacao
             // 
+            this.tabRotacao.Controls.Add(this.txtY);
+            this.tabRotacao.Controls.Add(this.txtX);
+            this.tabRotacao.Controls.Add(this.label22);
+            this.tabRotacao.Controls.Add(this.label21);
+            this.tabRotacao.Controls.Add(this.rdPonto);
+            this.tabRotacao.Controls.Add(this.rdOrigem);
             this.tabRotacao.Controls.Add(this.btnRCancela);
             this.tabRotacao.Controls.Add(this.btnRConfirma);
             this.tabRotacao.Controls.Add(this.txtRota);
@@ -627,14 +643,70 @@
             this.tabRotacao.Margin = new System.Windows.Forms.Padding(2);
             this.tabRotacao.Name = "tabRotacao";
             this.tabRotacao.Padding = new System.Windows.Forms.Padding(2);
-            this.tabRotacao.Size = new System.Drawing.Size(211, 154);
+            this.tabRotacao.Size = new System.Drawing.Size(211, 222);
             this.tabRotacao.TabIndex = 1;
             this.tabRotacao.Text = "Rotação";
             this.tabRotacao.UseVisualStyleBackColor = true;
             // 
+            // txtY
+            // 
+            this.txtY.Location = new System.Drawing.Point(103, 77);
+            this.txtY.Name = "txtY";
+            this.txtY.Size = new System.Drawing.Size(27, 20);
+            this.txtY.TabIndex = 14;
+            // 
+            // txtX
+            // 
+            this.txtX.Location = new System.Drawing.Point(26, 77);
+            this.txtX.Name = "txtX";
+            this.txtX.Size = new System.Drawing.Size(27, 20);
+            this.txtX.TabIndex = 13;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(81, 80);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(17, 13);
+            this.label22.TabIndex = 12;
+            this.label22.Text = "Y:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(4, 80);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(17, 13);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "X:";
+            // 
+            // rdPonto
+            // 
+            this.rdPonto.AutoSize = true;
+            this.rdPonto.Location = new System.Drawing.Point(4, 51);
+            this.rdPonto.Name = "rdPonto";
+            this.rdPonto.Size = new System.Drawing.Size(198, 17);
+            this.rdPonto.TabIndex = 10;
+            this.rdPonto.TabStop = true;
+            this.rdPonto.Text = "Rotacionar sobre um ponto quaquer:";
+            this.rdPonto.UseVisualStyleBackColor = true;
+            // 
+            // rdOrigem
+            // 
+            this.rdOrigem.AutoSize = true;
+            this.rdOrigem.Location = new System.Drawing.Point(5, 18);
+            this.rdOrigem.Name = "rdOrigem";
+            this.rdOrigem.Size = new System.Drawing.Size(149, 17);
+            this.rdOrigem.TabIndex = 9;
+            this.rdOrigem.TabStop = true;
+            this.rdOrigem.Text = "Rotacionar sobre a origem";
+            this.rdOrigem.UseVisualStyleBackColor = true;
+            // 
             // btnRCancela
             // 
-            this.btnRCancela.Location = new System.Drawing.Point(66, 133);
+            this.btnRCancela.Location = new System.Drawing.Point(66, 196);
             this.btnRCancela.Margin = new System.Windows.Forms.Padding(2);
             this.btnRCancela.Name = "btnRCancela";
             this.btnRCancela.Size = new System.Drawing.Size(56, 19);
@@ -645,7 +717,7 @@
             // 
             // btnRConfirma
             // 
-            this.btnRConfirma.Location = new System.Drawing.Point(4, 133);
+            this.btnRConfirma.Location = new System.Drawing.Point(4, 196);
             this.btnRConfirma.Margin = new System.Windows.Forms.Padding(2);
             this.btnRConfirma.Name = "btnRConfirma";
             this.btnRConfirma.Size = new System.Drawing.Size(56, 19);
@@ -656,7 +728,7 @@
             // 
             // txtRota
             // 
-            this.txtRota.Location = new System.Drawing.Point(56, 34);
+            this.txtRota.Location = new System.Drawing.Point(66, 126);
             this.txtRota.Margin = new System.Windows.Forms.Padding(2);
             this.txtRota.Name = "txtRota";
             this.txtRota.Size = new System.Drawing.Size(76, 20);
@@ -665,7 +737,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(4, 37);
+            this.label17.Location = new System.Drawing.Point(14, 129);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(43, 13);
@@ -676,7 +748,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(2, 101);
+            this.label16.Location = new System.Drawing.Point(2, 164);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(207, 26);
@@ -696,6 +768,8 @@
             // 
             // tabEscalonamento
             // 
+            this.tabEscalonamento.Controls.Add(this.label24);
+            this.tabEscalonamento.Controls.Add(this.ckOrigem);
             this.tabEscalonamento.Controls.Add(this.txtEscalaY);
             this.tabEscalonamento.Controls.Add(this.txtEscalaX);
             this.tabEscalonamento.Controls.Add(this.label18);
@@ -707,7 +781,7 @@
             this.tabEscalonamento.Margin = new System.Windows.Forms.Padding(2);
             this.tabEscalonamento.Name = "tabEscalonamento";
             this.tabEscalonamento.Padding = new System.Windows.Forms.Padding(2);
-            this.tabEscalonamento.Size = new System.Drawing.Size(211, 154);
+            this.tabEscalonamento.Size = new System.Drawing.Size(211, 222);
             this.tabEscalonamento.TabIndex = 2;
             this.tabEscalonamento.Text = "Escalonamento";
             this.tabEscalonamento.UseVisualStyleBackColor = true;
@@ -760,7 +834,7 @@
             // 
             // btnECancela
             // 
-            this.btnECancela.Location = new System.Drawing.Point(66, 133);
+            this.btnECancela.Location = new System.Drawing.Point(70, 199);
             this.btnECancela.Margin = new System.Windows.Forms.Padding(2);
             this.btnECancela.Name = "btnECancela";
             this.btnECancela.Size = new System.Drawing.Size(56, 19);
@@ -771,7 +845,7 @@
             // 
             // btnEConfirma
             // 
-            this.btnEConfirma.Location = new System.Drawing.Point(4, 133);
+            this.btnEConfirma.Location = new System.Drawing.Point(8, 199);
             this.btnEConfirma.Margin = new System.Windows.Forms.Padding(2);
             this.btnEConfirma.Name = "btnEConfirma";
             this.btnEConfirma.Size = new System.Drawing.Size(56, 19);
@@ -791,12 +865,42 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "Transformação de objetos";
             // 
+            // ckOrigem
+            // 
+            this.ckOrigem.AutoSize = true;
+            this.ckOrigem.Location = new System.Drawing.Point(8, 113);
+            this.ckOrigem.Name = "ckOrigem";
+            this.ckOrigem.Size = new System.Drawing.Size(122, 17);
+            this.ckOrigem.TabIndex = 14;
+            this.ckOrigem.Text = "Em relação a origem";
+            this.ckOrigem.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(633, 201);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(0, 13);
+            this.label23.TabIndex = 15;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(5, 146);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(175, 39);
+            this.label24.TabIndex = 15;
+            this.label24.Text = "Selecionar (Em relação a origem) \r\nvai escalonar usando como base o \r\nprimeiro vé" +
+    "rtice informado";
+            // 
             // CompGrafica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1155, 621);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnCima);
@@ -906,6 +1010,15 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.RadioButton rdPonto;
+        private System.Windows.Forms.RadioButton rdOrigem;
+        private System.Windows.Forms.TextBox txtY;
+        private System.Windows.Forms.TextBox txtX;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.CheckBox ckOrigem;
+        private System.Windows.Forms.Label label23;
     }
 }
 

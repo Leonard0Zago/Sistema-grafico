@@ -441,6 +441,53 @@ namespace ProjetoJanela
             picBox.Invalidate();
         }
         // Botões de transformação dos objetos
+        private void AplicarTransformacao(Figura figura, Matriz transformacao)
+        {
+            void aplicarTransformacao(Ponto ponto)
+            {
+                Matriz pontoMatriz = new Matriz(3, 1);
+                pontoMatriz.DefinirValor(0, 0, ponto.CoordenadaX);
+                pontoMatriz.DefinirValor(1, 0, ponto.CoordenadaY);
+                pontoMatriz.DefinirValor(2, 0, 1);
+
+                Matriz resultado = Matriz.Multiplicar(transformacao, pontoMatriz);
+
+                ponto.CoordenadaX = (float)resultado.ObterValor(0, 0);
+                ponto.CoordenadaY = (float)resultado.ObterValor(1, 0);
+            }
+
+            if (figura is Ponto pontoUnico)
+            {
+                aplicarTransformacao(pontoUnico);
+            }
+            else if (figura is Linha linha)
+            {
+                Ponto pontoInicial = new Ponto(linha.CoordenadaX1, linha.CoordenadaY1);
+                Ponto pontoFinal = new Ponto(linha.CoordenadaX2, linha.CoordenadaY2);
+
+                aplicarTransformacao(pontoInicial);
+                aplicarTransformacao(pontoFinal);
+
+                linha.CoordenadaX1 = pontoInicial.CoordenadaX;
+                linha.CoordenadaY1 = pontoInicial.CoordenadaY;
+                linha.CoordenadaX2 = pontoFinal.CoordenadaX;
+                linha.CoordenadaY2 = pontoFinal.CoordenadaY;
+            }
+            else if (figura is Polilinha polilinha)
+            {
+                foreach (var pontoPolilinha in polilinha.Pontos)
+                {
+                    aplicarTransformacao(pontoPolilinha);
+                }
+            }
+            else if (figura is Poligono poligono)
+            {
+                foreach (var pontoPoligono in poligono.Pontos)
+                {
+                    aplicarTransformacao(pontoPoligono);
+                }
+            }
+        }
         private void btnTConfirma_Click(object sender, EventArgs e)
         {
             if (listBox.SelectedItem != null)
@@ -456,49 +503,7 @@ namespace ProjetoJanela
                 matrizTranslacao.DefinirValor(2, 2, 1);
 
                 Figura figuraSelecionada = (Figura)listBox.SelectedItem;
-
-                Func<Ponto, Ponto> aplicarTranslacao = p =>
-                {
-                    Matriz pontoMatriz = new Matriz(3, 1);
-                    pontoMatriz.DefinirValor(0, 0, p.CoordenadaX);
-                    pontoMatriz.DefinirValor(1, 0, p.CoordenadaY);
-                    pontoMatriz.DefinirValor(2, 0, 1);
-
-                    Matriz resultado = Matriz.Multiplicar(matrizTranslacao, pontoMatriz);
-
-                    return new Ponto((float)resultado.ObterValor(0, 0), (float)resultado.ObterValor(1, 0));
-                };
-
-                if (figuraSelecionada is Ponto ponto)
-                {
-                    Ponto novoPonto = aplicarTranslacao(ponto);
-                    ponto.CoordenadaX = novoPonto.CoordenadaX;
-                    ponto.CoordenadaY = novoPonto.CoordenadaY;
-                }
-                else if (figuraSelecionada is Linha linha)
-                {
-                    var pontoInicialTransladado = aplicarTranslacao(new Ponto(linha.CoordenadaX1, linha.CoordenadaY1));
-                    linha.CoordenadaX1 = pontoInicialTransladado.CoordenadaX;
-                    linha.CoordenadaY1 = pontoInicialTransladado.CoordenadaY;
-
-                    var pontoFinalTransladado = aplicarTranslacao(new Ponto(linha.CoordenadaX2, linha.CoordenadaY2));
-                    linha.CoordenadaX2 = pontoFinalTransladado.CoordenadaX;
-                    linha.CoordenadaY2 = pontoFinalTransladado.CoordenadaY;
-                }
-                else if (figuraSelecionada is Polilinha polilinha)
-                {
-                    for (int i = 0; i < polilinha.Pontos.Count; i++)
-                    {
-                        polilinha.Pontos[i] = aplicarTranslacao(polilinha.Pontos[i]);
-                    }
-                }
-                else if (figuraSelecionada is Poligono poligono)
-                {
-                    for (int i = 0; i < poligono.Pontos.Count; i++)
-                    {
-                        poligono.Pontos[i] = aplicarTranslacao(poligono.Pontos[i]);
-                    }
-                }
+                AplicarTransformacao(figuraSelecionada, matrizTranslacao);
 
                 picBox.Invalidate();
             }
@@ -510,6 +515,7 @@ namespace ProjetoJanela
             txtTransX.Clear();
             txtTransY.Clear();
         }
+
         private void btnTCancela_Click(object sender, EventArgs e)
         {
             txtTransX.Clear();
@@ -518,57 +524,44 @@ namespace ProjetoJanela
         private void RotacionarFigura(Figura figura, float angulo)
         {
             double radianos = angulo * (Math.PI / 180.0);
+            float pontoX = 0, pontoY = 0;
 
-            Matriz rotacao = new Matriz(2, 2);
-            rotacao.DefinirValor(0, 0, Math.Cos(radianos));
-            rotacao.DefinirValor(0, 1, -Math.Sin(radianos));
-            rotacao.DefinirValor(1, 0, Math.Sin(radianos));
-            rotacao.DefinirValor(1, 1, Math.Cos(radianos));
-
-            void aplicarRotacao(Ponto pontoAtual)
+            if (rdOrigem.Checked)
             {
-                Matriz pontoMatriz = new Matriz(2, 1);
-                pontoMatriz.DefinirValor(0, 0, pontoAtual.CoordenadaX);
-                pontoMatriz.DefinirValor(1, 0, pontoAtual.CoordenadaY);
-
-                Matriz resultado = Matriz.Multiplicar(rotacao, pontoMatriz);
-
-                pontoAtual.CoordenadaX = (float)resultado.ObterValor(0, 0);
-                pontoAtual.CoordenadaY = (float)resultado.ObterValor(1, 0);
+                pontoX = 0;
+                pontoY = 0;
+            }
+            else if (rdPonto.Checked)
+            {
+                pontoX = float.Parse(txtX.Text);
+                pontoY = float.Parse(txtY.Text);
             }
 
-            if (figura is Ponto ponto)
-            {
-                aplicarRotacao(ponto);
-            }
-            else if (figura is Linha linha)
-            {
-                Ponto pontoInicial = new Ponto(linha.CoordenadaX1, linha.CoordenadaY1);
-                Ponto pontoFinal = new Ponto(linha.CoordenadaX2, linha.CoordenadaY2);
+            Matriz matrizTranslacaoOrigem = new Matriz(3, 3);
+            matrizTranslacaoOrigem.DefinirValor(0, 0, 1);
+            matrizTranslacaoOrigem.DefinirValor(0, 2, -pontoX);
+            matrizTranslacaoOrigem.DefinirValor(1, 1, 1);
+            matrizTranslacaoOrigem.DefinirValor(1, 2, -pontoY);
+            matrizTranslacaoOrigem.DefinirValor(2, 2, 1);
 
-                aplicarRotacao(pontoInicial);
-                aplicarRotacao(pontoFinal);
+            Matriz matrizRotacao = new Matriz(3, 3);
+            matrizRotacao.DefinirValor(0, 0, Math.Cos(radianos));
+            matrizRotacao.DefinirValor(0, 1, -Math.Sin(radianos));
+            matrizRotacao.DefinirValor(1, 0, Math.Sin(radianos));
+            matrizRotacao.DefinirValor(1, 1, Math.Cos(radianos));
+            matrizRotacao.DefinirValor(2, 2, 1);
 
-                linha.CoordenadaX1 = pontoInicial.CoordenadaX;
-                linha.CoordenadaY1 = pontoInicial.CoordenadaY;
-                linha.CoordenadaX2 = pontoFinal.CoordenadaX;
-                linha.CoordenadaY2 = pontoFinal.CoordenadaY;
-            }
-            else if (figura is Polilinha polilinha)
-            {
-                foreach (var pontoPolilinha in polilinha.Pontos)
-                {
-                    aplicarRotacao(pontoPolilinha);
-                }
-            }
-            else if (figura is Poligono poligono)
-            {
-                foreach (var pontoPoligono in poligono.Pontos)
-                {
-                    aplicarRotacao(pontoPoligono);
-                }
-            }
+            Matriz matrizTranslacaoDeVolta = new Matriz(3, 3);
+            matrizTranslacaoDeVolta.DefinirValor(0, 0, 1);
+            matrizTranslacaoDeVolta.DefinirValor(0, 2, pontoX);
+            matrizTranslacaoDeVolta.DefinirValor(1, 1, 1);
+            matrizTranslacaoDeVolta.DefinirValor(1, 2, pontoY);
+            matrizTranslacaoDeVolta.DefinirValor(2, 2, 1);
+
+            Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta, Matriz.Multiplicar(matrizRotacao, matrizTranslacaoOrigem));
+            AplicarTransformacao(figura, transformacaoCompleta);
         }
+
         private void btnRConfirma_Click(object sender, EventArgs e)
         {
             if (listBox.SelectedItem != null && float.TryParse(txtRota.Text, out float angulo))
@@ -590,56 +583,50 @@ namespace ProjetoJanela
         }
         private void EscalonarFigura(Figura figura, float escalaX, float escalaY)
         {
-            Matriz escalonamento = new Matriz(2, 2);
-            escalonamento.DefinirValor(0, 0, escalaX);
-            escalonamento.DefinirValor(0, 1, 0);
-            escalonamento.DefinirValor(1, 0, 0);
-            escalonamento.DefinirValor(1, 1, escalaY);
+            float refX = 0, refY = 0;
 
-            void aplicarEscalonamento(Ponto ponto)
+            if (ckOrigem.Checked)
             {
-                Matriz pontoMatriz = new Matriz(2, 1);
-                pontoMatriz.DefinirValor(0, 0, ponto.CoordenadaX);
-                pontoMatriz.DefinirValor(1, 0, ponto.CoordenadaY);
-
-                Matriz resultado = Matriz.Multiplicar(escalonamento, pontoMatriz);
-
-                ponto.CoordenadaX = (float)resultado.ObterValor(0, 0);
-                ponto.CoordenadaY = (float)resultado.ObterValor(1, 0);
-            }
-
-            if (figura is Ponto pontoUnico)
-            {
-                aplicarEscalonamento(pontoUnico);
-            }
-            else if (figura is Linha linha)
-            {
-                Ponto pontoInicial = new Ponto(linha.CoordenadaX1, linha.CoordenadaY1);
-                Ponto pontoFinal = new Ponto(linha.CoordenadaX2, linha.CoordenadaY2);
-
-                aplicarEscalonamento(pontoInicial);
-                aplicarEscalonamento(pontoFinal);
-
-                linha.CoordenadaX1 = pontoInicial.CoordenadaX;
-                linha.CoordenadaY1 = pontoInicial.CoordenadaY;
-                linha.CoordenadaX2 = pontoFinal.CoordenadaX;
-                linha.CoordenadaY2 = pontoFinal.CoordenadaY;
-            }
-            else if (figura is Polilinha polilinha)
-            {
-                foreach (var pontoPolilinha in polilinha.Pontos)
+                if (figura is Linha linha)
                 {
-                    aplicarEscalonamento(pontoPolilinha);
+                    refX = linha.CoordenadaX1;
+                    refY = linha.CoordenadaY1;
+                }
+                else if (figura is Polilinha polilinha && polilinha.Pontos.Count > 0)
+                {
+                    refX = polilinha.Pontos[0].CoordenadaX;
+                    refY = polilinha.Pontos[0].CoordenadaY;
+                }
+                else if (figura is Poligono poligono && poligono.Pontos.Count > 0)
+                {
+                    refX = poligono.Pontos[0].CoordenadaX;
+                    refY = poligono.Pontos[0].CoordenadaY;
                 }
             }
-            else if (figura is Poligono poligono)
-            {
-                foreach (var pontoPoligono in poligono.Pontos)
-                {
-                    aplicarEscalonamento(pontoPoligono);
-                }
-            }
+
+            Matriz matrizTranslacaoOrigem = new Matriz(3, 3);
+            matrizTranslacaoOrigem.DefinirValor(0, 0, 1);
+            matrizTranslacaoOrigem.DefinirValor(0, 2, -refX);
+            matrizTranslacaoOrigem.DefinirValor(1, 1, 1);
+            matrizTranslacaoOrigem.DefinirValor(1, 2, -refY);
+            matrizTranslacaoOrigem.DefinirValor(2, 2, 1);
+
+            Matriz matrizEscalonamento = new Matriz(3, 3);
+            matrizEscalonamento.DefinirValor(0, 0, escalaX);
+            matrizEscalonamento.DefinirValor(1, 1, escalaY);
+            matrizEscalonamento.DefinirValor(2, 2, 1);
+
+            Matriz matrizTranslacaoDeVolta = new Matriz(3, 3);
+            matrizTranslacaoDeVolta.DefinirValor(0, 0, 1);
+            matrizTranslacaoDeVolta.DefinirValor(0, 2, refX);
+            matrizTranslacaoDeVolta.DefinirValor(1, 1, 1);
+            matrizTranslacaoDeVolta.DefinirValor(1, 2, refY);
+            matrizTranslacaoDeVolta.DefinirValor(2, 2, 1);
+
+            Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta, Matriz.Multiplicar(matrizEscalonamento, matrizTranslacaoOrigem));
+            AplicarTransformacao(figura, transformacaoCompleta);
         }
+
         private void btnEConfirma_Click(object sender, EventArgs e)
         {
             if (float.TryParse(txtEscalaX.Text, out float escalaX) && float.TryParse(txtEscalaY.Text, out float escalaY))
