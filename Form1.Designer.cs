@@ -103,9 +103,11 @@
             this.btnECancela = new System.Windows.Forms.Button();
             this.btnEConfirma = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.ckOrigem = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.rdCentro = new System.Windows.Forms.RadioButton();
+            this.rdEOrigem = new System.Windows.Forms.RadioButton();
+            this.rdECentro = new System.Windows.Forms.RadioButton();
+            this.rdESimples = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPonto.SuspendLayout();
@@ -627,6 +629,7 @@
             // 
             // tabRotacao
             // 
+            this.tabRotacao.Controls.Add(this.rdCentro);
             this.tabRotacao.Controls.Add(this.txtY);
             this.tabRotacao.Controls.Add(this.txtX);
             this.tabRotacao.Controls.Add(this.label22);
@@ -650,14 +653,14 @@
             // 
             // txtY
             // 
-            this.txtY.Location = new System.Drawing.Point(103, 77);
+            this.txtY.Location = new System.Drawing.Point(115, 87);
             this.txtY.Name = "txtY";
             this.txtY.Size = new System.Drawing.Size(27, 20);
             this.txtY.TabIndex = 14;
             // 
             // txtX
             // 
-            this.txtX.Location = new System.Drawing.Point(26, 77);
+            this.txtX.Location = new System.Drawing.Point(38, 87);
             this.txtX.Name = "txtX";
             this.txtX.Size = new System.Drawing.Size(27, 20);
             this.txtX.TabIndex = 13;
@@ -665,7 +668,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(81, 80);
+            this.label22.Location = new System.Drawing.Point(93, 90);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(17, 13);
@@ -675,7 +678,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(4, 80);
+            this.label21.Location = new System.Drawing.Point(16, 90);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(17, 13);
@@ -685,7 +688,7 @@
             // rdPonto
             // 
             this.rdPonto.AutoSize = true;
-            this.rdPonto.Location = new System.Drawing.Point(4, 51);
+            this.rdPonto.Location = new System.Drawing.Point(4, 64);
             this.rdPonto.Name = "rdPonto";
             this.rdPonto.Size = new System.Drawing.Size(198, 17);
             this.rdPonto.TabIndex = 10;
@@ -696,7 +699,7 @@
             // rdOrigem
             // 
             this.rdOrigem.AutoSize = true;
-            this.rdOrigem.Location = new System.Drawing.Point(5, 18);
+            this.rdOrigem.Location = new System.Drawing.Point(4, 18);
             this.rdOrigem.Name = "rdOrigem";
             this.rdOrigem.Size = new System.Drawing.Size(149, 17);
             this.rdOrigem.TabIndex = 9;
@@ -768,8 +771,9 @@
             // 
             // tabEscalonamento
             // 
-            this.tabEscalonamento.Controls.Add(this.label24);
-            this.tabEscalonamento.Controls.Add(this.ckOrigem);
+            this.tabEscalonamento.Controls.Add(this.rdEOrigem);
+            this.tabEscalonamento.Controls.Add(this.rdECentro);
+            this.tabEscalonamento.Controls.Add(this.rdESimples);
             this.tabEscalonamento.Controls.Add(this.txtEscalaY);
             this.tabEscalonamento.Controls.Add(this.txtEscalaX);
             this.tabEscalonamento.Controls.Add(this.label18);
@@ -865,16 +869,6 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "Transformação de objetos";
             // 
-            // ckOrigem
-            // 
-            this.ckOrigem.AutoSize = true;
-            this.ckOrigem.Location = new System.Drawing.Point(8, 113);
-            this.ckOrigem.Name = "ckOrigem";
-            this.ckOrigem.Size = new System.Drawing.Size(122, 17);
-            this.ckOrigem.TabIndex = 14;
-            this.ckOrigem.Text = "Em relação a origem";
-            this.ckOrigem.UseVisualStyleBackColor = true;
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -884,15 +878,49 @@
             this.label23.Size = new System.Drawing.Size(0, 13);
             this.label23.TabIndex = 15;
             // 
-            // label24
+            // rdCentro
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(5, 146);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(175, 39);
-            this.label24.TabIndex = 15;
-            this.label24.Text = "Selecionar (Em relação a origem) \r\nvai escalonar usando como base o \r\nprimeiro vé" +
-    "rtice informado";
+            this.rdCentro.AutoSize = true;
+            this.rdCentro.Location = new System.Drawing.Point(4, 41);
+            this.rdCentro.Name = "rdCentro";
+            this.rdCentro.Size = new System.Drawing.Size(148, 17);
+            this.rdCentro.TabIndex = 15;
+            this.rdCentro.TabStop = true;
+            this.rdCentro.Text = "Rotacionar sobre o centro";
+            this.rdCentro.UseVisualStyleBackColor = true;
+            // 
+            // rdEOrigem
+            // 
+            this.rdEOrigem.AutoSize = true;
+            this.rdEOrigem.Location = new System.Drawing.Point(5, 114);
+            this.rdEOrigem.Name = "rdEOrigem";
+            this.rdEOrigem.Size = new System.Drawing.Size(170, 17);
+            this.rdEOrigem.TabIndex = 18;
+            this.rdEOrigem.TabStop = true;
+            this.rdEOrigem.Text = "Escalonar em relação a origem";
+            this.rdEOrigem.UseVisualStyleBackColor = true;
+            // 
+            // rdECentro
+            // 
+            this.rdECentro.AutoSize = true;
+            this.rdECentro.Location = new System.Drawing.Point(5, 137);
+            this.rdECentro.Name = "rdECentro";
+            this.rdECentro.Size = new System.Drawing.Size(143, 17);
+            this.rdECentro.TabIndex = 17;
+            this.rdECentro.TabStop = true;
+            this.rdECentro.Text = "Escalonar sobre o centro";
+            this.rdECentro.UseVisualStyleBackColor = true;
+            // 
+            // rdESimples
+            // 
+            this.rdESimples.AutoSize = true;
+            this.rdESimples.Location = new System.Drawing.Point(5, 91);
+            this.rdESimples.Name = "rdESimples";
+            this.rdESimples.Size = new System.Drawing.Size(135, 17);
+            this.rdESimples.TabIndex = 16;
+            this.rdESimples.TabStop = true;
+            this.rdESimples.Text = "Escalonamento simples";
+            this.rdESimples.UseVisualStyleBackColor = true;
             // 
             // CompGrafica
             // 
@@ -1016,9 +1044,11 @@
         private System.Windows.Forms.TextBox txtX;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.CheckBox ckOrigem;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.RadioButton rdCentro;
+        private System.Windows.Forms.RadioButton rdEOrigem;
+        private System.Windows.Forms.RadioButton rdECentro;
+        private System.Windows.Forms.RadioButton rdESimples;
     }
 }
 

@@ -17,6 +17,9 @@ namespace ProjetoJanela
         public abstract class Figura
         {
             public string Nome { get; set; }
+
+            public abstract float CalcularCentroX();
+            public abstract float CalcularCentroY();
         }
         public class Ponto : Figura
         {
@@ -31,6 +34,9 @@ namespace ProjetoJanela
                 CoordenadaY = coordenadaY;
             }
 
+            public override float CalcularCentroX() => CoordenadaX;
+            public override float CalcularCentroY() => CoordenadaY;
+
             public override string ToString()
             {
                 return $"Ponto {Nome}";
@@ -43,6 +49,15 @@ namespace ProjetoJanela
             public float CoordenadaX2 { get; set; }
             public float CoordenadaY2 { get; set; }
 
+            public override float CalcularCentroX()
+            {
+                return (CoordenadaX1 + CoordenadaX2) / 2;
+            }
+            public override float CalcularCentroY()
+            {
+                return (CoordenadaY1 + CoordenadaY2) / 2;
+            }
+
             public override string ToString()
             {
                 return $"Linha {Nome}";
@@ -51,6 +66,21 @@ namespace ProjetoJanela
         public class Polilinha : Figura
         {
             public List<Ponto> Pontos { get; set; } = new List<Ponto>();
+
+            public override float CalcularCentroX()
+            {
+                float xMin = Pontos.Min(p => p.CoordenadaX);
+                float xMax = Pontos.Max(p => p.CoordenadaX);
+                return (xMin + xMax) / 2;
+            }
+
+            public override float CalcularCentroY()
+            {
+                float yMin = Pontos.Min(p => p.CoordenadaY);
+                float yMax = Pontos.Max(p => p.CoordenadaY);
+                return (yMin + yMax) / 2;
+            }
+
             public override string ToString()
             {
                 return $"Polilinha {Nome}";
@@ -59,6 +89,21 @@ namespace ProjetoJanela
         public class Poligono : Figura
         {
             public List<Ponto> Pontos { get; set; } = new List<Ponto>();
+
+            public override float CalcularCentroX()
+            {
+                float xMin = Pontos.Min(p => p.CoordenadaX);
+                float xMax = Pontos.Max(p => p.CoordenadaX);
+                return (xMin + xMax) / 2;
+            }
+
+            public override float CalcularCentroY()
+            {
+                float yMin = Pontos.Min(p => p.CoordenadaY);
+                float yMax = Pontos.Max(p => p.CoordenadaY);
+                return (yMin + yMax) / 2;
+            }
+
             public override string ToString()
             {
                 return $"Poligono {Nome}";
@@ -515,7 +560,6 @@ namespace ProjetoJanela
             txtTransX.Clear();
             txtTransY.Clear();
         }
-
         private void btnTCancela_Click(object sender, EventArgs e)
         {
             txtTransX.Clear();
@@ -535,6 +579,11 @@ namespace ProjetoJanela
             {
                 pontoX = float.Parse(txtX.Text);
                 pontoY = float.Parse(txtY.Text);
+            }
+            else if (rdCentro.Checked)
+            {
+                pontoX = figura.CalcularCentroX();
+                pontoY = figura.CalcularCentroY();
             }
 
             Matriz matrizTranslacaoOrigem = new Matriz(3, 3);
@@ -559,9 +608,9 @@ namespace ProjetoJanela
             matrizTranslacaoDeVolta.DefinirValor(2, 2, 1);
 
             Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta, Matriz.Multiplicar(matrizRotacao, matrizTranslacaoOrigem));
+
             AplicarTransformacao(figura, transformacaoCompleta);
         }
-
         private void btnRConfirma_Click(object sender, EventArgs e)
         {
             if (listBox.SelectedItem != null && float.TryParse(txtRota.Text, out float angulo))
@@ -585,7 +634,12 @@ namespace ProjetoJanela
         {
             float refX = 0, refY = 0;
 
-            if (ckOrigem.Checked)
+            if (rdESimples.Checked)
+            {
+                refX = 0;
+                refY = 0;
+            }
+            else if (rdEOrigem.Checked)
             {
                 if (figura is Linha linha)
                 {
@@ -602,6 +656,11 @@ namespace ProjetoJanela
                     refX = poligono.Pontos[0].CoordenadaX;
                     refY = poligono.Pontos[0].CoordenadaY;
                 }
+            }
+            else if (rdECentro.Checked)
+            {
+                refX = figura.CalcularCentroX();
+                refY = figura.CalcularCentroY();
             }
 
             Matriz matrizTranslacaoOrigem = new Matriz(3, 3);
@@ -624,9 +683,9 @@ namespace ProjetoJanela
             matrizTranslacaoDeVolta.DefinirValor(2, 2, 1);
 
             Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta, Matriz.Multiplicar(matrizEscalonamento, matrizTranslacaoOrigem));
+
             AplicarTransformacao(figura, transformacaoCompleta);
         }
-
         private void btnEConfirma_Click(object sender, EventArgs e)
         {
             if (float.TryParse(txtEscalaX.Text, out float escalaX) && float.TryParse(txtEscalaY.Text, out float escalaY))
@@ -649,6 +708,5 @@ namespace ProjetoJanela
             txtEscalaX.Clear();
             txtEscalaY.Clear();
         }
-
     }
 }
