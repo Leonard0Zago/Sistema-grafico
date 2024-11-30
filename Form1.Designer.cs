@@ -33,6 +33,8 @@
             this.btnRemover = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPonto = new System.Windows.Forms.TabPage();
+            this.label28 = new System.Windows.Forms.Label();
+            this.cordZPonto = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cordYPonto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +43,10 @@
             this.cordXPonto = new System.Windows.Forms.TextBox();
             this.nomePonto = new System.Windows.Forms.TextBox();
             this.tabLinha = new System.Windows.Forms.TabPage();
+            this.label29 = new System.Windows.Forms.Label();
+            this.cordZ1Linha = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.cordZ2Linha = new System.Windows.Forms.TextBox();
             this.btnSalvLinha = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.cordY1Linha = new System.Windows.Forms.TextBox();
@@ -55,15 +61,11 @@
             this.tabPolilinha = new System.Windows.Forms.TabPage();
             this.btnSalvPolilinha = new System.Windows.Forms.Button();
             this.gridPolilinha = new System.Windows.Forms.DataGridView();
-            this.colunaX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colunaY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.nomePolilinha = new System.Windows.Forms.TextBox();
             this.tabPoligono = new System.Windows.Forms.TabPage();
             this.btnSalvPoligono = new System.Windows.Forms.Button();
             this.gridPoligono = new System.Windows.Forms.DataGridView();
-            this.coluX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coluY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.nomePoligono = new System.Windows.Forms.TextBox();
             this.btnMais = new System.Windows.Forms.Button();
@@ -72,7 +74,7 @@
             this.brnEsq = new System.Windows.Forms.Button();
             this.btnDir = new System.Windows.Forms.Button();
             this.btnCima = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabOperacoes = new System.Windows.Forms.TabControl();
             this.tabTranslacao = new System.Windows.Forms.TabPage();
             this.btnTCancela = new System.Windows.Forms.Button();
             this.btnTConfirma = new System.Windows.Forms.Button();
@@ -82,11 +84,11 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabRotacao = new System.Windows.Forms.TabPage();
+            this.rdCentro = new System.Windows.Forms.RadioButton();
             this.txtY = new System.Windows.Forms.TextBox();
             this.txtX = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.rdPonto = new System.Windows.Forms.RadioButton();
             this.rdOrigem = new System.Windows.Forms.RadioButton();
             this.btnRCancela = new System.Windows.Forms.Button();
             this.btnRConfirma = new System.Windows.Forms.Button();
@@ -95,6 +97,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.tabEscalonamento = new System.Windows.Forms.TabPage();
+            this.rdEOrigem = new System.Windows.Forms.RadioButton();
+            this.rdECentro = new System.Windows.Forms.RadioButton();
+            this.rdESimples = new System.Windows.Forms.RadioButton();
             this.txtEscalaY = new System.Windows.Forms.TextBox();
             this.txtEscalaX = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -102,12 +107,42 @@
             this.label20 = new System.Windows.Forms.Label();
             this.btnECancela = new System.Windows.Forms.Button();
             this.btnEConfirma = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
+            this.btnRefCancela = new System.Windows.Forms.Button();
+            this.btnRefConfirma = new System.Windows.Forms.Button();
+            this.ckY = new System.Windows.Forms.CheckBox();
+            this.ckX = new System.Windows.Forms.CheckBox();
+            this.tabCisalhamento = new System.Windows.Forms.TabPage();
+            this.btnCisCancela = new System.Windows.Forms.Button();
+            this.btnCisConfirma = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtCisY = new System.Windows.Forms.TextBox();
+            this.txtCisX = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.rdCentro = new System.Windows.Forms.RadioButton();
-            this.rdEOrigem = new System.Windows.Forms.RadioButton();
-            this.rdECentro = new System.Windows.Forms.RadioButton();
-            this.rdESimples = new System.Windows.Forms.RadioButton();
+            this.coluX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colunaY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColunaZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTransZ = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.txtZ = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.txtEscalaZ = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.ckZ = new System.Windows.Forms.CheckBox();
+            this.txtCisZ = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.rdPonto = new System.Windows.Forms.RadioButton();
+            this.label35 = new System.Windows.Forms.Label();
+            this.rdX = new System.Windows.Forms.RadioButton();
+            this.rdY = new System.Windows.Forms.RadioButton();
+            this.rdZ = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPonto.SuspendLayout();
@@ -116,10 +151,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridPolilinha)).BeginInit();
             this.tabPoligono.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPoligono)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.tabOperacoes.SuspendLayout();
             this.tabTranslacao.SuspendLayout();
             this.tabRotacao.SuspendLayout();
             this.tabEscalonamento.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabCisalhamento.SuspendLayout();
             this.SuspendLayout();
             // 
             // picBox
@@ -167,6 +204,8 @@
             // tabPonto
             // 
             this.tabPonto.BackColor = System.Drawing.Color.Transparent;
+            this.tabPonto.Controls.Add(this.label28);
+            this.tabPonto.Controls.Add(this.cordZPonto);
             this.tabPonto.Controls.Add(this.label6);
             this.tabPonto.Controls.Add(this.cordYPonto);
             this.tabPonto.Controls.Add(this.label2);
@@ -180,6 +219,22 @@
             this.tabPonto.Size = new System.Drawing.Size(300, 248);
             this.tabPonto.TabIndex = 0;
             this.tabPonto.Text = "Ponto";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(7, 131);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(75, 13);
+            this.label28.TabIndex = 8;
+            this.label28.Text = "Coordenada Z";
+            // 
+            // cordZPonto
+            // 
+            this.cordZPonto.Location = new System.Drawing.Point(7, 147);
+            this.cordZPonto.Name = "cordZPonto";
+            this.cordZPonto.Size = new System.Drawing.Size(100, 20);
+            this.cordZPonto.TabIndex = 7;
             // 
             // label6
             // 
@@ -217,7 +272,7 @@
             // 
             // btnSalvPonto
             // 
-            this.btnSalvPonto.Location = new System.Drawing.Point(7, 145);
+            this.btnSalvPonto.Location = new System.Drawing.Point(7, 176);
             this.btnSalvPonto.Name = "btnSalvPonto";
             this.btnSalvPonto.Size = new System.Drawing.Size(100, 23);
             this.btnSalvPonto.TabIndex = 2;
@@ -241,6 +296,10 @@
             // 
             // tabLinha
             // 
+            this.tabLinha.Controls.Add(this.label29);
+            this.tabLinha.Controls.Add(this.cordZ1Linha);
+            this.tabLinha.Controls.Add(this.label30);
+            this.tabLinha.Controls.Add(this.cordZ2Linha);
             this.tabLinha.Controls.Add(this.btnSalvLinha);
             this.tabLinha.Controls.Add(this.label10);
             this.tabLinha.Controls.Add(this.cordY1Linha);
@@ -259,9 +318,41 @@
             this.tabLinha.TabIndex = 1;
             this.tabLinha.Text = "Linha";
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(111, 49);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(20, 13);
+            this.label29.TabIndex = 18;
+            this.label29.Text = "Z1";
+            // 
+            // cordZ1Linha
+            // 
+            this.cordZ1Linha.Location = new System.Drawing.Point(111, 68);
+            this.cordZ1Linha.Name = "cordZ1Linha";
+            this.cordZ1Linha.Size = new System.Drawing.Size(47, 20);
+            this.cordZ1Linha.TabIndex = 17;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(112, 88);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(20, 13);
+            this.label30.TabIndex = 16;
+            this.label30.Text = "Z2";
+            // 
+            // cordZ2Linha
+            // 
+            this.cordZ2Linha.Location = new System.Drawing.Point(112, 107);
+            this.cordZ2Linha.Name = "cordZ2Linha";
+            this.cordZ2Linha.Size = new System.Drawing.Size(47, 20);
+            this.cordZ2Linha.TabIndex = 15;
+            // 
             // btnSalvLinha
             // 
-            this.btnSalvLinha.Location = new System.Drawing.Point(6, 144);
+            this.btnSalvLinha.Location = new System.Drawing.Point(6, 209);
             this.btnSalvLinha.Name = "btnSalvLinha";
             this.btnSalvLinha.Size = new System.Drawing.Size(100, 23);
             this.btnSalvLinha.TabIndex = 14;
@@ -272,7 +363,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(111, 49);
+            this.label10.Location = new System.Drawing.Point(59, 49);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(20, 13);
             this.label10.TabIndex = 13;
@@ -280,15 +371,15 @@
             // 
             // cordY1Linha
             // 
-            this.cordY1Linha.Location = new System.Drawing.Point(111, 68);
+            this.cordY1Linha.Location = new System.Drawing.Point(59, 68);
             this.cordY1Linha.Name = "cordY1Linha";
-            this.cordY1Linha.Size = new System.Drawing.Size(100, 20);
+            this.cordY1Linha.Size = new System.Drawing.Size(47, 20);
             this.cordY1Linha.TabIndex = 12;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(112, 88);
+            this.label9.Location = new System.Drawing.Point(60, 88);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(20, 13);
             this.label9.TabIndex = 11;
@@ -296,9 +387,9 @@
             // 
             // cordY2Linha
             // 
-            this.cordY2Linha.Location = new System.Drawing.Point(112, 107);
+            this.cordY2Linha.Location = new System.Drawing.Point(60, 107);
             this.cordY2Linha.Name = "cordY2Linha";
-            this.cordY2Linha.Size = new System.Drawing.Size(100, 20);
+            this.cordY2Linha.Size = new System.Drawing.Size(47, 20);
             this.cordY2Linha.TabIndex = 10;
             // 
             // label8
@@ -314,7 +405,7 @@
             // 
             this.cordX2Linha.Location = new System.Drawing.Point(6, 107);
             this.cordX2Linha.Name = "cordX2Linha";
-            this.cordX2Linha.Size = new System.Drawing.Size(100, 20);
+            this.cordX2Linha.Size = new System.Drawing.Size(47, 20);
             this.cordX2Linha.TabIndex = 8;
             // 
             // label7
@@ -330,7 +421,7 @@
             // 
             this.cordX1Linha.Location = new System.Drawing.Point(6, 68);
             this.cordX1Linha.Name = "cordX1Linha";
-            this.cordX1Linha.Size = new System.Drawing.Size(100, 20);
+            this.cordX1Linha.Size = new System.Drawing.Size(47, 20);
             this.cordX1Linha.TabIndex = 6;
             // 
             // label3
@@ -377,21 +468,12 @@
             this.gridPolilinha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPolilinha.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colunaX,
-            this.colunaY});
+            this.colunaY,
+            this.ColunaZ});
             this.gridPolilinha.Location = new System.Drawing.Point(6, 59);
             this.gridPolilinha.Name = "gridPolilinha";
             this.gridPolilinha.Size = new System.Drawing.Size(283, 150);
             this.gridPolilinha.TabIndex = 8;
-            // 
-            // colunaX
-            // 
-            this.colunaX.HeaderText = "Cord. X";
-            this.colunaX.Name = "colunaX";
-            // 
-            // colunaY
-            // 
-            this.colunaY.HeaderText = "Cord. Y";
-            this.colunaY.Name = "colunaY";
             // 
             // label4
             // 
@@ -437,21 +519,12 @@
             this.gridPoligono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPoligono.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.coluX,
-            this.coluY});
+            this.coluY,
+            this.coluz});
             this.gridPoligono.Location = new System.Drawing.Point(6, 57);
             this.gridPoligono.Name = "gridPoligono";
-            this.gridPoligono.Size = new System.Drawing.Size(280, 150);
+            this.gridPoligono.Size = new System.Drawing.Size(283, 150);
             this.gridPoligono.TabIndex = 16;
-            // 
-            // coluX
-            // 
-            this.coluX.HeaderText = "Cord. X";
-            this.coluX.Name = "coluX";
-            // 
-            // coluY
-            // 
-            this.coluY.HeaderText = "Cord. Y";
-            this.coluY.Name = "coluY";
             // 
             // label5
             // 
@@ -529,20 +602,24 @@
             this.btnCima.UseVisualStyleBackColor = true;
             this.btnCima.Click += new System.EventHandler(this.btnCima_Click);
             // 
-            // tabControl1
+            // tabOperacoes
             // 
-            this.tabControl1.Controls.Add(this.tabTranslacao);
-            this.tabControl1.Controls.Add(this.tabRotacao);
-            this.tabControl1.Controls.Add(this.tabEscalonamento);
-            this.tabControl1.Location = new System.Drawing.Point(932, 33);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(219, 248);
-            this.tabControl1.TabIndex = 11;
+            this.tabOperacoes.Controls.Add(this.tabTranslacao);
+            this.tabOperacoes.Controls.Add(this.tabRotacao);
+            this.tabOperacoes.Controls.Add(this.tabEscalonamento);
+            this.tabOperacoes.Controls.Add(this.tabPage1);
+            this.tabOperacoes.Controls.Add(this.tabCisalhamento);
+            this.tabOperacoes.Location = new System.Drawing.Point(932, 33);
+            this.tabOperacoes.Margin = new System.Windows.Forms.Padding(2);
+            this.tabOperacoes.Name = "tabOperacoes";
+            this.tabOperacoes.SelectedIndex = 0;
+            this.tabOperacoes.Size = new System.Drawing.Size(335, 292);
+            this.tabOperacoes.TabIndex = 11;
             // 
             // tabTranslacao
             // 
+            this.tabTranslacao.Controls.Add(this.txtTransZ);
+            this.tabTranslacao.Controls.Add(this.label31);
             this.tabTranslacao.Controls.Add(this.btnTCancela);
             this.tabTranslacao.Controls.Add(this.btnTConfirma);
             this.tabTranslacao.Controls.Add(this.txtTransY);
@@ -554,7 +631,7 @@
             this.tabTranslacao.Margin = new System.Windows.Forms.Padding(2);
             this.tabTranslacao.Name = "tabTranslacao";
             this.tabTranslacao.Padding = new System.Windows.Forms.Padding(2);
-            this.tabTranslacao.Size = new System.Drawing.Size(211, 222);
+            this.tabTranslacao.Size = new System.Drawing.Size(327, 222);
             this.tabTranslacao.TabIndex = 0;
             this.tabTranslacao.Text = "Translação";
             this.tabTranslacao.UseVisualStyleBackColor = true;
@@ -629,6 +706,12 @@
             // 
             // tabRotacao
             // 
+            this.tabRotacao.Controls.Add(this.rdZ);
+            this.tabRotacao.Controls.Add(this.rdY);
+            this.tabRotacao.Controls.Add(this.rdX);
+            this.tabRotacao.Controls.Add(this.label35);
+            this.tabRotacao.Controls.Add(this.txtZ);
+            this.tabRotacao.Controls.Add(this.label32);
             this.tabRotacao.Controls.Add(this.rdCentro);
             this.tabRotacao.Controls.Add(this.txtY);
             this.tabRotacao.Controls.Add(this.txtX);
@@ -646,10 +729,21 @@
             this.tabRotacao.Margin = new System.Windows.Forms.Padding(2);
             this.tabRotacao.Name = "tabRotacao";
             this.tabRotacao.Padding = new System.Windows.Forms.Padding(2);
-            this.tabRotacao.Size = new System.Drawing.Size(211, 222);
+            this.tabRotacao.Size = new System.Drawing.Size(327, 266);
             this.tabRotacao.TabIndex = 1;
             this.tabRotacao.Text = "Rotação";
             this.tabRotacao.UseVisualStyleBackColor = true;
+            // 
+            // rdCentro
+            // 
+            this.rdCentro.AutoSize = true;
+            this.rdCentro.Location = new System.Drawing.Point(4, 41);
+            this.rdCentro.Name = "rdCentro";
+            this.rdCentro.Size = new System.Drawing.Size(148, 17);
+            this.rdCentro.TabIndex = 15;
+            this.rdCentro.TabStop = true;
+            this.rdCentro.Text = "Rotacionar sobre o centro";
+            this.rdCentro.UseVisualStyleBackColor = true;
             // 
             // txtY
             // 
@@ -685,17 +779,6 @@
             this.label21.TabIndex = 11;
             this.label21.Text = "X:";
             // 
-            // rdPonto
-            // 
-            this.rdPonto.AutoSize = true;
-            this.rdPonto.Location = new System.Drawing.Point(4, 64);
-            this.rdPonto.Name = "rdPonto";
-            this.rdPonto.Size = new System.Drawing.Size(198, 17);
-            this.rdPonto.TabIndex = 10;
-            this.rdPonto.TabStop = true;
-            this.rdPonto.Text = "Rotacionar sobre um ponto quaquer:";
-            this.rdPonto.UseVisualStyleBackColor = true;
-            // 
             // rdOrigem
             // 
             this.rdOrigem.AutoSize = true;
@@ -709,7 +792,7 @@
             // 
             // btnRCancela
             // 
-            this.btnRCancela.Location = new System.Drawing.Point(66, 196);
+            this.btnRCancela.Location = new System.Drawing.Point(68, 234);
             this.btnRCancela.Margin = new System.Windows.Forms.Padding(2);
             this.btnRCancela.Name = "btnRCancela";
             this.btnRCancela.Size = new System.Drawing.Size(56, 19);
@@ -720,7 +803,7 @@
             // 
             // btnRConfirma
             // 
-            this.btnRConfirma.Location = new System.Drawing.Point(4, 196);
+            this.btnRConfirma.Location = new System.Drawing.Point(6, 234);
             this.btnRConfirma.Margin = new System.Windows.Forms.Padding(2);
             this.btnRConfirma.Name = "btnRConfirma";
             this.btnRConfirma.Size = new System.Drawing.Size(56, 19);
@@ -731,7 +814,7 @@
             // 
             // txtRota
             // 
-            this.txtRota.Location = new System.Drawing.Point(66, 126);
+            this.txtRota.Location = new System.Drawing.Point(68, 181);
             this.txtRota.Margin = new System.Windows.Forms.Padding(2);
             this.txtRota.Name = "txtRota";
             this.txtRota.Size = new System.Drawing.Size(76, 20);
@@ -740,7 +823,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 129);
+            this.label17.Location = new System.Drawing.Point(16, 184);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(43, 13);
@@ -751,7 +834,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(2, 164);
+            this.label16.Location = new System.Drawing.Point(4, 202);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(207, 26);
@@ -771,6 +854,8 @@
             // 
             // tabEscalonamento
             // 
+            this.tabEscalonamento.Controls.Add(this.txtEscalaZ);
+            this.tabEscalonamento.Controls.Add(this.label33);
             this.tabEscalonamento.Controls.Add(this.rdEOrigem);
             this.tabEscalonamento.Controls.Add(this.rdECentro);
             this.tabEscalonamento.Controls.Add(this.rdESimples);
@@ -785,10 +870,43 @@
             this.tabEscalonamento.Margin = new System.Windows.Forms.Padding(2);
             this.tabEscalonamento.Name = "tabEscalonamento";
             this.tabEscalonamento.Padding = new System.Windows.Forms.Padding(2);
-            this.tabEscalonamento.Size = new System.Drawing.Size(211, 222);
+            this.tabEscalonamento.Size = new System.Drawing.Size(327, 222);
             this.tabEscalonamento.TabIndex = 2;
             this.tabEscalonamento.Text = "Escalonamento";
             this.tabEscalonamento.UseVisualStyleBackColor = true;
+            // 
+            // rdEOrigem
+            // 
+            this.rdEOrigem.AutoSize = true;
+            this.rdEOrigem.Location = new System.Drawing.Point(5, 136);
+            this.rdEOrigem.Name = "rdEOrigem";
+            this.rdEOrigem.Size = new System.Drawing.Size(170, 17);
+            this.rdEOrigem.TabIndex = 18;
+            this.rdEOrigem.TabStop = true;
+            this.rdEOrigem.Text = "Escalonar em relação a origem";
+            this.rdEOrigem.UseVisualStyleBackColor = true;
+            // 
+            // rdECentro
+            // 
+            this.rdECentro.AutoSize = true;
+            this.rdECentro.Location = new System.Drawing.Point(5, 159);
+            this.rdECentro.Name = "rdECentro";
+            this.rdECentro.Size = new System.Drawing.Size(143, 17);
+            this.rdECentro.TabIndex = 17;
+            this.rdECentro.TabStop = true;
+            this.rdECentro.Text = "Escalonar sobre o centro";
+            this.rdECentro.UseVisualStyleBackColor = true;
+            // 
+            // rdESimples
+            // 
+            this.rdESimples.AutoSize = true;
+            this.rdESimples.Location = new System.Drawing.Point(5, 113);
+            this.rdESimples.Name = "rdESimples";
+            this.rdESimples.Size = new System.Drawing.Size(135, 17);
+            this.rdESimples.TabIndex = 16;
+            this.rdESimples.TabStop = true;
+            this.rdESimples.Text = "Escalonamento simples";
+            this.rdESimples.UseVisualStyleBackColor = true;
             // 
             // txtEscalaY
             // 
@@ -858,6 +976,161 @@
             this.btnEConfirma.UseVisualStyleBackColor = true;
             this.btnEConfirma.Click += new System.EventHandler(this.btnEConfirma_Click);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.ckZ);
+            this.tabPage1.Controls.Add(this.label26);
+            this.tabPage1.Controls.Add(this.btnRefCancela);
+            this.tabPage1.Controls.Add(this.btnRefConfirma);
+            this.tabPage1.Controls.Add(this.ckY);
+            this.tabPage1.Controls.Add(this.ckX);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(327, 219);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Reflexão";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(2, 3);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(82, 13);
+            this.label26.TabIndex = 11;
+            this.label26.Text = "Eixo de reflexão";
+            // 
+            // btnRefCancela
+            // 
+            this.btnRefCancela.Location = new System.Drawing.Point(70, 198);
+            this.btnRefCancela.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRefCancela.Name = "btnRefCancela";
+            this.btnRefCancela.Size = new System.Drawing.Size(56, 19);
+            this.btnRefCancela.TabIndex = 10;
+            this.btnRefCancela.Text = "Cancelar";
+            this.btnRefCancela.UseVisualStyleBackColor = true;
+            this.btnRefCancela.Click += new System.EventHandler(this.btnRefCancela_Click);
+            // 
+            // btnRefConfirma
+            // 
+            this.btnRefConfirma.Location = new System.Drawing.Point(10, 198);
+            this.btnRefConfirma.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRefConfirma.Name = "btnRefConfirma";
+            this.btnRefConfirma.Size = new System.Drawing.Size(56, 19);
+            this.btnRefConfirma.TabIndex = 9;
+            this.btnRefConfirma.Text = "Confirmar";
+            this.btnRefConfirma.UseVisualStyleBackColor = true;
+            this.btnRefConfirma.Click += new System.EventHandler(this.btnRefConfirma_Click);
+            // 
+            // ckY
+            // 
+            this.ckY.AutoSize = true;
+            this.ckY.Location = new System.Drawing.Point(13, 55);
+            this.ckY.Name = "ckY";
+            this.ckY.Size = new System.Drawing.Size(115, 17);
+            this.ckY.TabIndex = 1;
+            this.ckY.Text = "Em torno do eixo Y";
+            this.ckY.UseVisualStyleBackColor = true;
+            // 
+            // ckX
+            // 
+            this.ckX.AutoSize = true;
+            this.ckX.Location = new System.Drawing.Point(13, 32);
+            this.ckX.Name = "ckX";
+            this.ckX.Size = new System.Drawing.Size(115, 17);
+            this.ckX.TabIndex = 0;
+            this.ckX.Text = "Em torno do eixo X";
+            this.ckX.UseVisualStyleBackColor = true;
+            // 
+            // tabCisalhamento
+            // 
+            this.tabCisalhamento.Controls.Add(this.txtCisZ);
+            this.tabCisalhamento.Controls.Add(this.label34);
+            this.tabCisalhamento.Controls.Add(this.btnCisCancela);
+            this.tabCisalhamento.Controls.Add(this.btnCisConfirma);
+            this.tabCisalhamento.Controls.Add(this.label27);
+            this.tabCisalhamento.Controls.Add(this.txtCisY);
+            this.tabCisalhamento.Controls.Add(this.txtCisX);
+            this.tabCisalhamento.Controls.Add(this.label24);
+            this.tabCisalhamento.Controls.Add(this.label25);
+            this.tabCisalhamento.Location = new System.Drawing.Point(4, 22);
+            this.tabCisalhamento.Name = "tabCisalhamento";
+            this.tabCisalhamento.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCisalhamento.Size = new System.Drawing.Size(327, 219);
+            this.tabCisalhamento.TabIndex = 4;
+            this.tabCisalhamento.Text = "Cisalhamento";
+            this.tabCisalhamento.UseVisualStyleBackColor = true;
+            // 
+            // btnCisCancela
+            // 
+            this.btnCisCancela.Location = new System.Drawing.Point(70, 198);
+            this.btnCisCancela.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCisCancela.Name = "btnCisCancela";
+            this.btnCisCancela.Size = new System.Drawing.Size(56, 19);
+            this.btnCisCancela.TabIndex = 20;
+            this.btnCisCancela.Text = "Cancelar";
+            this.btnCisCancela.UseVisualStyleBackColor = true;
+            this.btnCisCancela.Click += new System.EventHandler(this.btnCisCancela_Click);
+            // 
+            // btnCisConfirma
+            // 
+            this.btnCisConfirma.Location = new System.Drawing.Point(10, 198);
+            this.btnCisConfirma.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCisConfirma.Name = "btnCisConfirma";
+            this.btnCisConfirma.Size = new System.Drawing.Size(56, 19);
+            this.btnCisConfirma.TabIndex = 19;
+            this.btnCisConfirma.Text = "Confirmar";
+            this.btnCisConfirma.UseVisualStyleBackColor = true;
+            this.btnCisConfirma.Click += new System.EventHandler(this.btnCisConfirma_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(2, 3);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(52, 13);
+            this.label27.TabIndex = 18;
+            this.label27.Text = "Distorção";
+            // 
+            // txtCisY
+            // 
+            this.txtCisY.Location = new System.Drawing.Point(48, 51);
+            this.txtCisY.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCisY.Name = "txtCisY";
+            this.txtCisY.Size = new System.Drawing.Size(76, 20);
+            this.txtCisY.TabIndex = 17;
+            // 
+            // txtCisX
+            // 
+            this.txtCisX.Location = new System.Drawing.Point(47, 28);
+            this.txtCisX.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCisX.Name = "txtCisX";
+            this.txtCisX.Size = new System.Drawing.Size(76, 20);
+            this.txtCisX.TabIndex = 16;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(8, 28);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(35, 13);
+            this.label24.TabIndex = 15;
+            this.label24.Text = "Em X:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(8, 52);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(35, 13);
+            this.label25.TabIndex = 14;
+            this.label25.Text = "Em Y:";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -878,59 +1151,186 @@
             this.label23.Size = new System.Drawing.Size(0, 13);
             this.label23.TabIndex = 15;
             // 
-            // rdCentro
+            // coluX
             // 
-            this.rdCentro.AutoSize = true;
-            this.rdCentro.Location = new System.Drawing.Point(4, 41);
-            this.rdCentro.Name = "rdCentro";
-            this.rdCentro.Size = new System.Drawing.Size(148, 17);
-            this.rdCentro.TabIndex = 15;
-            this.rdCentro.TabStop = true;
-            this.rdCentro.Text = "Rotacionar sobre o centro";
-            this.rdCentro.UseVisualStyleBackColor = true;
+            this.coluX.HeaderText = "Cord. X";
+            this.coluX.Name = "coluX";
+            this.coluX.Width = 80;
             // 
-            // rdEOrigem
+            // coluY
             // 
-            this.rdEOrigem.AutoSize = true;
-            this.rdEOrigem.Location = new System.Drawing.Point(5, 114);
-            this.rdEOrigem.Name = "rdEOrigem";
-            this.rdEOrigem.Size = new System.Drawing.Size(170, 17);
-            this.rdEOrigem.TabIndex = 18;
-            this.rdEOrigem.TabStop = true;
-            this.rdEOrigem.Text = "Escalonar em relação a origem";
-            this.rdEOrigem.UseVisualStyleBackColor = true;
+            this.coluY.HeaderText = "Cord. Y";
+            this.coluY.Name = "coluY";
+            this.coluY.Width = 80;
             // 
-            // rdECentro
+            // coluz
             // 
-            this.rdECentro.AutoSize = true;
-            this.rdECentro.Location = new System.Drawing.Point(5, 137);
-            this.rdECentro.Name = "rdECentro";
-            this.rdECentro.Size = new System.Drawing.Size(143, 17);
-            this.rdECentro.TabIndex = 17;
-            this.rdECentro.TabStop = true;
-            this.rdECentro.Text = "Escalonar sobre o centro";
-            this.rdECentro.UseVisualStyleBackColor = true;
+            this.coluz.HeaderText = "Cord. Z";
+            this.coluz.Name = "coluz";
+            this.coluz.Width = 80;
             // 
-            // rdESimples
+            // colunaX
             // 
-            this.rdESimples.AutoSize = true;
-            this.rdESimples.Location = new System.Drawing.Point(5, 91);
-            this.rdESimples.Name = "rdESimples";
-            this.rdESimples.Size = new System.Drawing.Size(135, 17);
-            this.rdESimples.TabIndex = 16;
-            this.rdESimples.TabStop = true;
-            this.rdESimples.Text = "Escalonamento simples";
-            this.rdESimples.UseVisualStyleBackColor = true;
+            this.colunaX.HeaderText = "Cord. X";
+            this.colunaX.Name = "colunaX";
+            this.colunaX.Width = 80;
+            // 
+            // colunaY
+            // 
+            this.colunaY.HeaderText = "Cord. Y";
+            this.colunaY.Name = "colunaY";
+            this.colunaY.Width = 80;
+            // 
+            // ColunaZ
+            // 
+            this.ColunaZ.HeaderText = "Cord. Z";
+            this.ColunaZ.Name = "ColunaZ";
+            this.ColunaZ.Width = 80;
+            // 
+            // txtTransZ
+            // 
+            this.txtTransZ.Location = new System.Drawing.Point(57, 80);
+            this.txtTransZ.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTransZ.Name = "txtTransZ";
+            this.txtTransZ.Size = new System.Drawing.Size(76, 20);
+            this.txtTransZ.TabIndex = 8;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(3, 81);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(45, 13);
+            this.label31.TabIndex = 7;
+            this.label31.Text = "Vetor Z:";
+            // 
+            // txtZ
+            // 
+            this.txtZ.Location = new System.Drawing.Point(194, 90);
+            this.txtZ.Name = "txtZ";
+            this.txtZ.Size = new System.Drawing.Size(27, 20);
+            this.txtZ.TabIndex = 17;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(172, 93);
+            this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(17, 13);
+            this.label32.TabIndex = 16;
+            this.label32.Text = "Z:";
+            // 
+            // txtEscalaZ
+            // 
+            this.txtEscalaZ.Location = new System.Drawing.Point(57, 80);
+            this.txtEscalaZ.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEscalaZ.Name = "txtEscalaZ";
+            this.txtEscalaZ.Size = new System.Drawing.Size(76, 20);
+            this.txtEscalaZ.TabIndex = 20;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(4, 81);
+            this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(52, 13);
+            this.label33.TabIndex = 19;
+            this.label33.Text = "Escala Z:";
+            // 
+            // ckZ
+            // 
+            this.ckZ.AutoSize = true;
+            this.ckZ.Location = new System.Drawing.Point(13, 78);
+            this.ckZ.Name = "ckZ";
+            this.ckZ.Size = new System.Drawing.Size(115, 17);
+            this.ckZ.TabIndex = 12;
+            this.ckZ.Text = "Em torno do eixo Z";
+            this.ckZ.UseVisualStyleBackColor = true;
+            // 
+            // txtCisZ
+            // 
+            this.txtCisZ.Location = new System.Drawing.Point(48, 75);
+            this.txtCisZ.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCisZ.Name = "txtCisZ";
+            this.txtCisZ.Size = new System.Drawing.Size(76, 20);
+            this.txtCisZ.TabIndex = 22;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(8, 76);
+            this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(35, 13);
+            this.label34.TabIndex = 21;
+            this.label34.Text = "Em Z:";
+            // 
+            // rdPonto
+            // 
+            this.rdPonto.AutoSize = true;
+            this.rdPonto.Location = new System.Drawing.Point(4, 64);
+            this.rdPonto.Name = "rdPonto";
+            this.rdPonto.Size = new System.Drawing.Size(198, 17);
+            this.rdPonto.TabIndex = 10;
+            this.rdPonto.TabStop = true;
+            this.rdPonto.Text = "Rotacionar sobre um ponto quaquer:";
+            this.rdPonto.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(4, 117);
+            this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(101, 13);
+            this.label35.TabIndex = 18;
+            this.label35.Text = "Eixo para rotacionar";
+            // 
+            // rdX
+            // 
+            this.rdX.AutoSize = true;
+            this.rdX.Location = new System.Drawing.Point(13, 146);
+            this.rdX.Name = "rdX";
+            this.rdX.Size = new System.Drawing.Size(32, 17);
+            this.rdX.TabIndex = 19;
+            this.rdX.TabStop = true;
+            this.rdX.Text = "X";
+            this.rdX.UseVisualStyleBackColor = true;
+            // 
+            // rdY
+            // 
+            this.rdY.AutoSize = true;
+            this.rdY.Location = new System.Drawing.Point(51, 146);
+            this.rdY.Name = "rdY";
+            this.rdY.Size = new System.Drawing.Size(32, 17);
+            this.rdY.TabIndex = 20;
+            this.rdY.TabStop = true;
+            this.rdY.Text = "Y";
+            this.rdY.UseVisualStyleBackColor = true;
+            // 
+            // rdZ
+            // 
+            this.rdZ.AutoSize = true;
+            this.rdZ.Location = new System.Drawing.Point(89, 146);
+            this.rdZ.Name = "rdZ";
+            this.rdZ.Size = new System.Drawing.Size(32, 17);
+            this.rdZ.TabIndex = 21;
+            this.rdZ.TabStop = true;
+            this.rdZ.Text = "Z";
+            this.rdZ.UseVisualStyleBackColor = true;
             // 
             // CompGrafica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1155, 621);
+            this.ClientSize = new System.Drawing.Size(1278, 621);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabOperacoes);
             this.Controls.Add(this.btnCima);
             this.Controls.Add(this.btnDir);
             this.Controls.Add(this.brnEsq);
@@ -955,13 +1355,17 @@
             this.tabPoligono.ResumeLayout(false);
             this.tabPoligono.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPoligono)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.tabOperacoes.ResumeLayout(false);
             this.tabTranslacao.ResumeLayout(false);
             this.tabTranslacao.PerformLayout();
             this.tabRotacao.ResumeLayout(false);
             this.tabRotacao.PerformLayout();
             this.tabEscalonamento.ResumeLayout(false);
             this.tabEscalonamento.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabCisalhamento.ResumeLayout(false);
+            this.tabCisalhamento.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1001,19 +1405,15 @@
         private System.Windows.Forms.Button btnSalvLinha;
         private System.Windows.Forms.DataGridView gridPolilinha;
         private System.Windows.Forms.Button btnSalvPolilinha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colunaX;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colunaY;
         private System.Windows.Forms.Button btnSalvPoligono;
         private System.Windows.Forms.DataGridView gridPoligono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coluX;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coluY;
         private System.Windows.Forms.Button btnMais;
         private System.Windows.Forms.Button btnMenos;
         private System.Windows.Forms.Button btnBaixo;
         private System.Windows.Forms.Button brnEsq;
         private System.Windows.Forms.Button btnDir;
         private System.Windows.Forms.Button btnCima;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabOperacoes;
         private System.Windows.Forms.TabPage tabTranslacao;
         private System.Windows.Forms.TabPage tabRotacao;
         private System.Windows.Forms.Label label11;
@@ -1038,7 +1438,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.RadioButton rdPonto;
         private System.Windows.Forms.RadioButton rdOrigem;
         private System.Windows.Forms.TextBox txtY;
         private System.Windows.Forms.TextBox txtX;
@@ -1049,6 +1448,46 @@
         private System.Windows.Forms.RadioButton rdEOrigem;
         private System.Windows.Forms.RadioButton rdECentro;
         private System.Windows.Forms.RadioButton rdESimples;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabCisalhamento;
+        private System.Windows.Forms.Button btnRefCancela;
+        private System.Windows.Forms.Button btnRefConfirma;
+        private System.Windows.Forms.CheckBox ckY;
+        private System.Windows.Forms.CheckBox ckX;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txtCisY;
+        private System.Windows.Forms.TextBox txtCisX;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button btnCisCancela;
+        private System.Windows.Forms.Button btnCisConfirma;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox cordZPonto;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox cordZ1Linha;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox cordZ2Linha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colunaX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colunaY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColunaZ;
+        private System.Windows.Forms.TextBox txtTransZ;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox txtZ;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox txtEscalaZ;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.CheckBox ckZ;
+        private System.Windows.Forms.TextBox txtCisZ;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.RadioButton rdPonto;
+        private System.Windows.Forms.RadioButton rdZ;
+        private System.Windows.Forms.RadioButton rdY;
+        private System.Windows.Forms.RadioButton rdX;
     }
 }
 

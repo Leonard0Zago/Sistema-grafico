@@ -20,22 +20,26 @@ namespace ProjetoJanela
 
             public abstract float CalcularCentroX();
             public abstract float CalcularCentroY();
+            public abstract float CalcularCentroZ();
         }
         public class Ponto : Figura
         {
             public float CoordenadaX { get; set; }
             public float CoordenadaY { get; set; }
+            public float CoordenadaZ { get; set; }
 
             public Ponto() { }
 
-            public Ponto(float coordenadaX, float coordenadaY)
+            public Ponto(float coordenadaX, float coordenadaY, float coordenadaZ)
             {
                 CoordenadaX = coordenadaX;
                 CoordenadaY = coordenadaY;
+                CoordenadaZ = coordenadaZ;
             }
 
             public override float CalcularCentroX() => CoordenadaX;
             public override float CalcularCentroY() => CoordenadaY;
+            public override float CalcularCentroZ() => CoordenadaZ;
 
             public override string ToString()
             {
@@ -46,8 +50,10 @@ namespace ProjetoJanela
         {
             public float CoordenadaX1 { get; set; }
             public float CoordenadaY1 { get; set; }
+            public float CoordenadaZ1 { get; set; }
             public float CoordenadaX2 { get; set; }
             public float CoordenadaY2 { get; set; }
+            public float CoordenadaZ2 { get; set; }
 
             public override float CalcularCentroX()
             {
@@ -56,6 +62,10 @@ namespace ProjetoJanela
             public override float CalcularCentroY()
             {
                 return (CoordenadaY1 + CoordenadaY2) / 2;
+            }
+            public override float CalcularCentroZ()
+            {
+                return (CoordenadaZ1 + CoordenadaZ2) / 2;
             }
 
             public override string ToString()
@@ -80,6 +90,12 @@ namespace ProjetoJanela
                 float yMax = Pontos.Max(p => p.CoordenadaY);
                 return (yMin + yMax) / 2;
             }
+            public override float CalcularCentroZ()
+            {
+                float zMin = Pontos.Min(p => p.CoordenadaZ);
+                float zMax = Pontos.Max(p => p.CoordenadaZ);
+                return (zMin + zMax) / 2;
+            }
 
             public override string ToString()
             {
@@ -102,6 +118,12 @@ namespace ProjetoJanela
                 float yMin = Pontos.Min(p => p.CoordenadaY);
                 float yMax = Pontos.Max(p => p.CoordenadaY);
                 return (yMin + yMax) / 2;
+            }
+            public override float CalcularCentroZ()
+            {
+                float zMin = Pontos.Min(p => p.CoordenadaZ);
+                float zMax = Pontos.Max(p => p.CoordenadaZ);
+                return (zMin + zMax) / 2;
             }
 
             public override string ToString()
@@ -142,6 +164,20 @@ namespace ProjetoJanela
                 return valores[linha, coluna];
             }
 
+            public Ponto MultiplicarComVetor(Ponto ponto)
+            {
+                if (Linhas != 4 || Colunas != 4)
+                {
+                    throw new InvalidOperationException("A matriz precisa ser 4x4 para multiplicar com um vetor 3D.");
+                }
+
+                double x = ponto.CoordenadaX * ObterValor(0, 0) + ponto.CoordenadaY * ObterValor(0, 1) + ponto.CoordenadaZ * ObterValor(0, 2) + ObterValor(0, 3);
+                double y = ponto.CoordenadaX * ObterValor(1, 0) + ponto.CoordenadaY * ObterValor(1, 1) + ponto.CoordenadaZ * ObterValor(1, 2) + ObterValor(1, 3);
+                double z = ponto.CoordenadaX * ObterValor(2, 0) + ponto.CoordenadaY * ObterValor(2, 1) + ponto.CoordenadaZ * ObterValor(2, 2) + ObterValor(2, 3);
+
+                return new Ponto((float)x, (float)y, (float)z);
+            }
+
             public static Matriz Multiplicar(Matriz m1, Matriz m2)
             {
                 if (m1.Colunas != m2.Linhas)
@@ -166,7 +202,6 @@ namespace ProjetoJanela
 
                 return resultado;
             }
-
             public void Imprimir()
             {
                 for (int i = 0; i < Linhas; i++)
@@ -348,7 +383,8 @@ namespace ProjetoJanela
             {
                 Nome = nomePonto.Text,
                 CoordenadaX = int.Parse(cordXPonto.Text),
-                CoordenadaY = int.Parse(cordYPonto.Text)
+                CoordenadaY = int.Parse(cordYPonto.Text),
+                CoordenadaZ = string.IsNullOrEmpty(cordZPonto.Text) ? 0 : int.Parse(cordZPonto.Text)
             };
 
             figuras.Add(novoPonto);
@@ -358,6 +394,7 @@ namespace ProjetoJanela
             nomePonto.Clear();
             cordXPonto.Clear();
             cordYPonto.Clear();
+            cordZPonto.Clear();
 
             listBox.DataSource = null;
             listBox.DataSource = figuras;
@@ -369,8 +406,10 @@ namespace ProjetoJanela
                 Nome = nomeLinha.Text,
                 CoordenadaX1 = int.Parse(cordX1Linha.Text),
                 CoordenadaY1 = int.Parse(cordY1Linha.Text),
+                CoordenadaZ1 = string.IsNullOrEmpty(cordZ1Linha.Text) ? 0 : int.Parse(cordZ1Linha.Text),
                 CoordenadaX2 = int.Parse(cordX2Linha.Text),
-                CoordenadaY2 = int.Parse(cordY2Linha.Text)
+                CoordenadaY2 = int.Parse(cordY2Linha.Text),
+                CoordenadaZ2 = string.IsNullOrEmpty(cordZ2Linha.Text) ? 0 : int.Parse(cordZ2Linha.Text)
             };
 
             figuras.Add(novaLinha);
@@ -380,8 +419,10 @@ namespace ProjetoJanela
             nomeLinha.Clear();
             cordX1Linha.Clear();
             cordY1Linha.Clear();
+            cordZ1Linha.Clear();
             cordX2Linha.Clear();
             cordY2Linha.Clear();
+            cordZ2Linha.Clear();
 
             listBox.DataSource = null;
             listBox.DataSource = figuras;
@@ -396,7 +437,9 @@ namespace ProjetoJanela
 
                 int x = int.Parse(row.Cells[0].Value.ToString());
                 int y = int.Parse(row.Cells[1].Value.ToString());
-                novaPolilinha.Pontos.Add(new Ponto { CoordenadaX = x, CoordenadaY = y });
+                int z = string.IsNullOrEmpty(row.Cells[2].Value.ToString()) ? 0 : int.Parse(row.Cells[2].Value.ToString());
+
+                novaPolilinha.Pontos.Add(new Ponto { CoordenadaX = x, CoordenadaY = y, CoordenadaZ = z });
             }
 
             figuras.Add(novaPolilinha);
@@ -419,7 +462,9 @@ namespace ProjetoJanela
 
                 int x = int.Parse(row.Cells[0].Value.ToString());
                 int y = int.Parse(row.Cells[1].Value.ToString());
-                novoPoligono.Pontos.Add(new Ponto { CoordenadaX = x, CoordenadaY = y });
+                int z = string.IsNullOrEmpty(row.Cells[2].Value.ToString()) ? 0 : int.Parse(row.Cells[2].Value.ToString());
+
+                novoPoligono.Pontos.Add(new Ponto { CoordenadaX = x, CoordenadaY = y, CoordenadaZ = z });
             }
 
             figuras.Add(novoPoligono);
@@ -490,15 +535,17 @@ namespace ProjetoJanela
         {
             void aplicarTransformacao(Ponto ponto)
             {
-                Matriz pontoMatriz = new Matriz(3, 1);
+                Matriz pontoMatriz = new Matriz(4, 1);
                 pontoMatriz.DefinirValor(0, 0, ponto.CoordenadaX);
                 pontoMatriz.DefinirValor(1, 0, ponto.CoordenadaY);
-                pontoMatriz.DefinirValor(2, 0, 1);
+                pontoMatriz.DefinirValor(2, 0, ponto.CoordenadaZ);
+                pontoMatriz.DefinirValor(3, 0, 1);
 
                 Matriz resultado = Matriz.Multiplicar(transformacao, pontoMatriz);
 
                 ponto.CoordenadaX = (float)resultado.ObterValor(0, 0);
                 ponto.CoordenadaY = (float)resultado.ObterValor(1, 0);
+                ponto.CoordenadaZ = (float)resultado.ObterValor(2, 0);
             }
 
             if (figura is Ponto pontoUnico)
@@ -507,16 +554,18 @@ namespace ProjetoJanela
             }
             else if (figura is Linha linha)
             {
-                Ponto pontoInicial = new Ponto(linha.CoordenadaX1, linha.CoordenadaY1);
-                Ponto pontoFinal = new Ponto(linha.CoordenadaX2, linha.CoordenadaY2);
+                Ponto pontoInicial = new Ponto(linha.CoordenadaX1, linha.CoordenadaY1, linha.CoordenadaZ1);
+                Ponto pontoFinal = new Ponto(linha.CoordenadaX2, linha.CoordenadaY2, linha.CoordenadaZ2);
 
                 aplicarTransformacao(pontoInicial);
                 aplicarTransformacao(pontoFinal);
 
                 linha.CoordenadaX1 = pontoInicial.CoordenadaX;
                 linha.CoordenadaY1 = pontoInicial.CoordenadaY;
+                linha.CoordenadaZ1 = pontoInicial.CoordenadaZ;
                 linha.CoordenadaX2 = pontoFinal.CoordenadaX;
                 linha.CoordenadaY2 = pontoFinal.CoordenadaY;
+                linha.CoordenadaZ2 = pontoFinal.CoordenadaZ;
             }
             else if (figura is Polilinha polilinha)
             {
@@ -539,13 +588,16 @@ namespace ProjetoJanela
             {
                 float transX = float.Parse(txtTransX.Text);
                 float transY = float.Parse(txtTransY.Text);
+                float transZ = float.Parse(txtTransZ.Text);
 
-                Matriz matrizTranslacao = new Matriz(3, 3);
+                Matriz matrizTranslacao = new Matriz(4, 4);
                 matrizTranslacao.DefinirValor(0, 0, 1);
-                matrizTranslacao.DefinirValor(0, 2, transX);
+                matrizTranslacao.DefinirValor(0, 3, transX);
                 matrizTranslacao.DefinirValor(1, 1, 1);
-                matrizTranslacao.DefinirValor(1, 2, transY);
+                matrizTranslacao.DefinirValor(1, 3, transY);
                 matrizTranslacao.DefinirValor(2, 2, 1);
+                matrizTranslacao.DefinirValor(2, 3, transZ);
+                matrizTranslacao.DefinirValor(3, 3, 1);
 
                 Figura figuraSelecionada = (Figura)listBox.SelectedItem;
                 AplicarTransformacao(figuraSelecionada, matrizTranslacao);
@@ -559,55 +611,87 @@ namespace ProjetoJanela
 
             txtTransX.Clear();
             txtTransY.Clear();
+            txtTransZ.Clear();
         }
         private void btnTCancela_Click(object sender, EventArgs e)
         {
             txtTransX.Clear();
             txtTransY.Clear();
+            txtTransZ.Clear();
         }
         private void RotacionarFigura(Figura figura, float angulo)
         {
             double radianos = angulo * (Math.PI / 180.0);
-            float pontoX = 0, pontoY = 0;
+            float pontoX = 0, pontoY = 0, pontoZ = 0;
 
             if (rdOrigem.Checked)
             {
                 pontoX = 0;
                 pontoY = 0;
+                pontoZ = 0;
             }
             else if (rdPonto.Checked)
             {
                 pontoX = float.Parse(txtX.Text);
                 pontoY = float.Parse(txtY.Text);
+                pontoZ = float.Parse(txtZ.Text);
             }
             else if (rdCentro.Checked)
             {
                 pontoX = figura.CalcularCentroX();
                 pontoY = figura.CalcularCentroY();
+                pontoZ = figura.CalcularCentroZ();
             }
 
-            Matriz matrizTranslacaoOrigem = new Matriz(3, 3);
+            Matriz matrizTranslacaoOrigem = new Matriz(4, 4);
             matrizTranslacaoOrigem.DefinirValor(0, 0, 1);
-            matrizTranslacaoOrigem.DefinirValor(0, 2, -pontoX);
+            matrizTranslacaoOrigem.DefinirValor(0, 3, -pontoX);
             matrizTranslacaoOrigem.DefinirValor(1, 1, 1);
-            matrizTranslacaoOrigem.DefinirValor(1, 2, -pontoY);
+            matrizTranslacaoOrigem.DefinirValor(1, 3, -pontoY);
             matrizTranslacaoOrigem.DefinirValor(2, 2, 1);
+            matrizTranslacaoOrigem.DefinirValor(2, 3, -pontoZ);
+            matrizTranslacaoOrigem.DefinirValor(3, 3, 1);
 
-            Matriz matrizRotacao = new Matriz(3, 3);
-            matrizRotacao.DefinirValor(0, 0, Math.Cos(radianos));
-            matrizRotacao.DefinirValor(0, 1, -Math.Sin(radianos));
-            matrizRotacao.DefinirValor(1, 0, Math.Sin(radianos));
-            matrizRotacao.DefinirValor(1, 1, Math.Cos(radianos));
-            matrizRotacao.DefinirValor(2, 2, 1);
+            Matriz matrizRotacao = new Matriz(4, 4);
+            if (rdX.Checked)
+            {
+                matrizRotacao.DefinirValor(0, 0, 1);
+                matrizRotacao.DefinirValor(1, 1, (float)Math.Cos(radianos));
+                matrizRotacao.DefinirValor(1, 2, -(float)Math.Sin(radianos));
+                matrizRotacao.DefinirValor(2, 1, (float)Math.Sin(radianos));
+                matrizRotacao.DefinirValor(2, 2, (float)Math.Cos(radianos));
+                matrizRotacao.DefinirValor(3, 3, 1);
+            }
+            else if (rdY.Checked)
+            {
+                matrizRotacao.DefinirValor(0, 0, (float)Math.Cos(radianos));
+                matrizRotacao.DefinirValor(0, 2, (float)Math.Sin(radianos));
+                matrizRotacao.DefinirValor(1, 1, 1);
+                matrizRotacao.DefinirValor(2, 0, -(float)Math.Sin(radianos));
+                matrizRotacao.DefinirValor(2, 2, (float)Math.Cos(radianos));
+                matrizRotacao.DefinirValor(3, 3, 1);
+            }
+            else if (rdZ.Checked)
+            {
+                matrizRotacao.DefinirValor(0, 0, (float)Math.Cos(radianos));
+                matrizRotacao.DefinirValor(0, 1, -(float)Math.Sin(radianos));
+                matrizRotacao.DefinirValor(1, 0, (float)Math.Sin(radianos));
+                matrizRotacao.DefinirValor(1, 1, (float)Math.Cos(radianos));
+                matrizRotacao.DefinirValor(2, 2, 1);
+                matrizRotacao.DefinirValor(3, 3, 1);
+            }
 
-            Matriz matrizTranslacaoDeVolta = new Matriz(3, 3);
+            Matriz matrizTranslacaoDeVolta = new Matriz(4, 4);
             matrizTranslacaoDeVolta.DefinirValor(0, 0, 1);
-            matrizTranslacaoDeVolta.DefinirValor(0, 2, pontoX);
+            matrizTranslacaoDeVolta.DefinirValor(0, 3, pontoX);
             matrizTranslacaoDeVolta.DefinirValor(1, 1, 1);
-            matrizTranslacaoDeVolta.DefinirValor(1, 2, pontoY);
+            matrizTranslacaoDeVolta.DefinirValor(1, 3, pontoY);
             matrizTranslacaoDeVolta.DefinirValor(2, 2, 1);
+            matrizTranslacaoDeVolta.DefinirValor(2, 3, pontoZ);
+            matrizTranslacaoDeVolta.DefinirValor(3, 3, 1);
 
-            Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta, Matriz.Multiplicar(matrizRotacao, matrizTranslacaoOrigem));
+            Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta,
+                Matriz.Multiplicar(matrizRotacao, matrizTranslacaoOrigem));
 
             AplicarTransformacao(figura, transformacaoCompleta);
         }
@@ -630,14 +714,15 @@ namespace ProjetoJanela
         {
             txtRota.Clear();
         }
-        private void EscalonarFigura(Figura figura, float escalaX, float escalaY)
+        private void EscalonarFigura(Figura figura, float escalaX, float escalaY, float escalaZ)
         {
-            float refX = 0, refY = 0;
+            float refX = 0, refY = 0, refZ = 0;
 
             if (rdESimples.Checked)
             {
                 refX = 0;
                 refY = 0;
+                refZ = 0;
             }
             else if (rdEOrigem.Checked)
             {
@@ -645,54 +730,66 @@ namespace ProjetoJanela
                 {
                     refX = linha.CoordenadaX1;
                     refY = linha.CoordenadaY1;
+                    refZ = 0;
                 }
                 else if (figura is Polilinha polilinha && polilinha.Pontos.Count > 0)
                 {
                     refX = polilinha.Pontos[0].CoordenadaX;
                     refY = polilinha.Pontos[0].CoordenadaY;
+                    refZ = 0;
                 }
                 else if (figura is Poligono poligono && poligono.Pontos.Count > 0)
                 {
                     refX = poligono.Pontos[0].CoordenadaX;
                     refY = poligono.Pontos[0].CoordenadaY;
+                    refZ = 0;
                 }
             }
             else if (rdECentro.Checked)
             {
                 refX = figura.CalcularCentroX();
                 refY = figura.CalcularCentroY();
+                refZ = 0;
             }
 
-            Matriz matrizTranslacaoOrigem = new Matriz(3, 3);
+            Matriz matrizTranslacaoOrigem = new Matriz(4, 4);
             matrizTranslacaoOrigem.DefinirValor(0, 0, 1);
-            matrizTranslacaoOrigem.DefinirValor(0, 2, -refX);
+            matrizTranslacaoOrigem.DefinirValor(0, 3, -refX);
             matrizTranslacaoOrigem.DefinirValor(1, 1, 1);
-            matrizTranslacaoOrigem.DefinirValor(1, 2, -refY);
+            matrizTranslacaoOrigem.DefinirValor(1, 3, -refY);
             matrizTranslacaoOrigem.DefinirValor(2, 2, 1);
+            matrizTranslacaoOrigem.DefinirValor(2, 3, -refZ);
+            matrizTranslacaoOrigem.DefinirValor(3, 3, 1);
 
-            Matriz matrizEscalonamento = new Matriz(3, 3);
+            Matriz matrizEscalonamento = new Matriz(4, 4);
             matrizEscalonamento.DefinirValor(0, 0, escalaX);
             matrizEscalonamento.DefinirValor(1, 1, escalaY);
-            matrizEscalonamento.DefinirValor(2, 2, 1);
+            matrizEscalonamento.DefinirValor(2, 2, escalaZ);
+            matrizEscalonamento.DefinirValor(3, 3, 1);
 
-            Matriz matrizTranslacaoDeVolta = new Matriz(3, 3);
+            Matriz matrizTranslacaoDeVolta = new Matriz(4, 4);
             matrizTranslacaoDeVolta.DefinirValor(0, 0, 1);
-            matrizTranslacaoDeVolta.DefinirValor(0, 2, refX);
+            matrizTranslacaoDeVolta.DefinirValor(0, 3, refX);
             matrizTranslacaoDeVolta.DefinirValor(1, 1, 1);
-            matrizTranslacaoDeVolta.DefinirValor(1, 2, refY);
+            matrizTranslacaoDeVolta.DefinirValor(1, 3, refY);
             matrizTranslacaoDeVolta.DefinirValor(2, 2, 1);
+            matrizTranslacaoDeVolta.DefinirValor(2, 3, refZ);
+            matrizTranslacaoDeVolta.DefinirValor(3, 3, 1);
 
-            Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta, Matriz.Multiplicar(matrizEscalonamento, matrizTranslacaoOrigem));
+            Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta,
+                Matriz.Multiplicar(matrizEscalonamento, matrizTranslacaoOrigem));
 
             AplicarTransformacao(figura, transformacaoCompleta);
         }
         private void btnEConfirma_Click(object sender, EventArgs e)
         {
-            if (float.TryParse(txtEscalaX.Text, out float escalaX) && float.TryParse(txtEscalaY.Text, out float escalaY))
+            if (float.TryParse(txtEscalaX.Text, out float escalaX) &&
+                float.TryParse(txtEscalaY.Text, out float escalaY) &&
+                float.TryParse(txtEscalaZ.Text, out float escalaZ))
             {
                 if (listBox.SelectedItem is Figura figuraSelecionada)
                 {
-                    EscalonarFigura(figuraSelecionada, escalaX, escalaY);
+                    EscalonarFigura(figuraSelecionada, escalaX, escalaY, escalaZ);
                     picBox.Invalidate();
                 }
             }
@@ -702,11 +799,153 @@ namespace ProjetoJanela
             }
             txtEscalaX.Clear();
             txtEscalaY.Clear();
+            txtEscalaZ.Clear();
         }
         private void btnECancela_Click(object sender, EventArgs e)
         {
             txtEscalaX.Clear();
             txtEscalaY.Clear();
+            txtEscalaZ.Clear();
         }
+        private void EspelharFigura(Figura figura, bool espelharX, bool espelharY, bool espelharZ)
+        {
+            float refX = 0, refY = 0, refZ = 0;
+
+            if (rdESimples.Checked)
+            {
+                refX = 0;
+                refY = 0;
+                refZ = 0;
+            }
+            else if (rdEOrigem.Checked)
+            {
+                if (figura is Linha linha)
+                {
+                    refX = linha.CoordenadaX1;
+                    refY = linha.CoordenadaY1;
+                    refZ = linha.CoordenadaZ1;
+                }
+                else if (figura is Polilinha polilinha && polilinha.Pontos.Count > 0)
+                {
+                    refX = polilinha.Pontos[0].CoordenadaX;
+                    refY = polilinha.Pontos[0].CoordenadaY;
+                    refZ = polilinha.Pontos[0].CoordenadaZ;
+                }
+                else if (figura is Poligono poligono && poligono.Pontos.Count > 0)
+                {
+                    refX = poligono.Pontos[0].CoordenadaX;
+                    refY = poligono.Pontos[0].CoordenadaY;
+                    refZ = poligono.Pontos[0].CoordenadaZ;
+                }
+            }
+            else if (rdECentro.Checked)
+            {
+                refX = figura.CalcularCentroX();
+                refY = figura.CalcularCentroY();
+                refZ = figura.CalcularCentroZ();
+            }
+
+            Matriz matrizTranslacaoOrigem = new Matriz(4, 4);
+            matrizTranslacaoOrigem.DefinirValor(0, 0, 1);
+            matrizTranslacaoOrigem.DefinirValor(0, 3, -refX);
+            matrizTranslacaoOrigem.DefinirValor(1, 1, 1);
+            matrizTranslacaoOrigem.DefinirValor(1, 3, -refY);
+            matrizTranslacaoOrigem.DefinirValor(2, 2, 1);
+            matrizTranslacaoOrigem.DefinirValor(2, 3, -refZ);
+            matrizTranslacaoOrigem.DefinirValor(3, 3, 1);
+
+            Matriz matrizEspelhamento = new Matriz(4, 4);
+            matrizEspelhamento.DefinirValor(0, 0, espelharX ? -1 : 1);
+            matrizEspelhamento.DefinirValor(1, 1, espelharY ? -1 : 1);
+            matrizEspelhamento.DefinirValor(2, 2, espelharZ ? -1 : 1);
+            matrizEspelhamento.DefinirValor(3, 3, 1);
+
+            Matriz matrizTranslacaoDeVolta = new Matriz(4, 4);
+            matrizTranslacaoDeVolta.DefinirValor(0, 0, 1);
+            matrizTranslacaoDeVolta.DefinirValor(0, 3, refX);
+            matrizTranslacaoDeVolta.DefinirValor(1, 1, 1);
+            matrizTranslacaoDeVolta.DefinirValor(1, 3, refY);
+            matrizTranslacaoDeVolta.DefinirValor(2, 2, 1);
+            matrizTranslacaoDeVolta.DefinirValor(2, 3, refZ);
+            matrizTranslacaoDeVolta.DefinirValor(3, 3, 1);
+
+            Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta,
+                Matriz.Multiplicar(matrizEspelhamento, matrizTranslacaoOrigem));
+
+            AplicarTransformacao(figura, transformacaoCompleta);
+        }
+        private void btnRefConfirma_Click(object sender, EventArgs e)
+        {
+            if (listBox.SelectedItem is Figura figuraSelecionada)
+            {
+                bool espelharX = ckX.Checked;
+                bool espelharY = ckY.Checked;
+                bool espelharZ = ckZ.Checked;
+
+                EspelharFigura(figuraSelecionada, espelharX, espelharY, espelharZ);
+                picBox.Invalidate();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecione uma figura para aplicar o espelhamento.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void btnRefCancela_Click(object sender, EventArgs e)
+        {
+            ckX.Checked = false;
+            ckY.Checked = false;
+            ckZ.Checked = false;
+        }
+        private void CisalharFigura(Figura figura, float cisX, float cisY, float cisZ)
+        {
+            Matriz matrizTranslacaoOrigem = new Matriz(4, 4);
+            matrizTranslacaoOrigem.DefinirValor(0, 0, 1);
+            matrizTranslacaoOrigem.DefinirValor(1, 1, 1);
+            matrizTranslacaoOrigem.DefinirValor(2, 2, 1);
+            matrizTranslacaoOrigem.DefinirValor(3, 3, 1);
+
+            Matriz matrizCisalhamento = new Matriz(4, 4);
+            matrizCisalhamento.DefinirValor(0, 0, 1);
+            matrizCisalhamento.DefinirValor(0, 1, cisX);
+            matrizCisalhamento.DefinirValor(1, 0, cisY);
+            matrizCisalhamento.DefinirValor(2, 0, cisZ);
+            matrizCisalhamento.DefinirValor(3, 3, 1);
+
+            Matriz matrizTranslacaoDeVolta = new Matriz(4, 4);
+            matrizTranslacaoDeVolta.DefinirValor(0, 0, 1);
+            matrizTranslacaoDeVolta.DefinirValor(1, 1, 1);
+            matrizTranslacaoDeVolta.DefinirValor(2, 2, 1);
+            matrizTranslacaoDeVolta.DefinirValor(3, 3, 1);
+
+            Matriz transformacaoCompleta = Matriz.Multiplicar(matrizTranslacaoDeVolta,
+                Matriz.Multiplicar(matrizCisalhamento, matrizTranslacaoOrigem));
+
+            AplicarTransformacao(figura, transformacaoCompleta);
+        }
+        private void btnCisConfirma_Click(object sender, EventArgs e)
+        {
+            if (float.TryParse(txtCisX.Text, out float cisX) && float.TryParse(txtCisY.Text, out float cisY) && float.TryParse(txtCisZ.Text, out float cisZ))
+            {
+                if (listBox.SelectedItem is Figura figuraSelecionada)
+                {
+                    CisalharFigura(figuraSelecionada, cisX, cisY, cisZ);
+                    picBox.Invalidate();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, insira valores válidos para o cisalhamento.");
+            }
+            txtCisX.Clear();
+            txtCisY.Clear();
+            txtCisZ.Clear();
+        }
+        private void btnCisCancela_Click(object sender, EventArgs e)
+        {
+            txtCisX.Clear();
+            txtCisY.Clear();
+            txtCisZ.Clear();
+        }
+
     }
 }
